@@ -181,7 +181,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
         //[Authorize(Roles = Role.Onboarder + "," + Role.Admin + "," + Role.Manager)]
         [HttpGet("{id}")]
         [Route("[action]/{id}")]
-        public async Task<ActionResult<LessonContentViewModel[]>> GetLessonContentByLessonOutcome(int id)
+        public async Task<IActionResult> GetLessonContentByLessonOutcome(int id)
         {
             try
             {
@@ -189,7 +189,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (result == null) return NotFound();
 
-                return _mapper.Map<LessonContentViewModel[]>(result);
+                return Ok(result);
             }
             catch (Exception)
             {

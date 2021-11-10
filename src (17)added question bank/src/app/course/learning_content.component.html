@@ -1,4 +1,4 @@
-<nav aria-label="breadcrumb">
+<!-- <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a>Course</a></li>
     <li class="breadcrumb-item"><a>Lesson</a></li>
@@ -6,13 +6,17 @@
     <li class="breadcrumb-item active" aria-current="page">Lesson Content</li>
   </ol>
 
-</nav>
- 
+</nav> -->
+<div class="page-title" *ngIf="lesson_content.length >0">
+  {{lesson_content[0].lessonOutcome.lesson.course.courseName}} ▶  {{lesson_content[0].lessonOutcome.lesson.lessonName}} ▶ {{lesson_content[0].lessonOutcome.lessonOutcomeName}} ▶ Lesson Content
+</div>
+
+<div class="page-title" *ngIf="lesson_content.length ==0">
+  {{lesson_content[0].lessonOutcome.lesson.course.courseName}} ▶  {{lesson_content[0].lessonOutcome.lesson.lessonName}} ▶ {{lesson_content[0].lessonOutcome.lessonOutcomeName}} ▶ Has no Lesson content
+</div>
 <div class="AddEmployeeTitleContainer">
   <div class="addEmployeeTitleContainer">
-    <!-- <div class="page-title" *ngIf="quizzes.length >0">
-      {{quizzes[0].courseName}} ▶ {{quizzes[0].lessonName}} ▶ {{quizzes[0].lessonOutcomeName}} ▶ Quizzez
-    </div> -->
+   
     <div>
       Manage Lesson Content
     </div>
