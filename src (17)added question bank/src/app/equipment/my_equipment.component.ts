@@ -185,7 +185,7 @@ console.log("equip", this.model2)
       } ,
     });
     dialogRef.afterClosed().subscribe(result => {
-      
+      window.document.location.reload();
     });
 
   

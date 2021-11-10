@@ -53,7 +53,7 @@
         <th class="col">Query Date</th>
         <th class="col">Equipment Serial Number</th>
         <th class="col">Equipment Type</th>
-        <th class="col">Onboarder</th>
+        
         <th class="col">Query Status</th>
         <th class="col">Action</th>
       </tr>
@@ -64,8 +64,8 @@
         <td>{{item.equipmentQueryDate}}</td>
         <td>{{item.equipment.equipmentSerialNumber}}</td>
         <td>{{item.equipment.equipmentType.equipmentTypeDescription}}</td>
-        <td>{{item.onboarder.employee.firstName}} {{item.onboarder.employee.lastName}}</td>
-        <td>{{item.queryStatus.equipmentQueryDescription}} {{item.queryStatus}}</td>
+      
+        <td>{{item.queryStatus.equipmentQueryDescription}} </td>
         <td>
           <button class="btn btn-danger" (click)="editReport_Query(i)">Resolve Query</button>
         </td>

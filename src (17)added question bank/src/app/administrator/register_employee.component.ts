@@ -240,6 +240,7 @@ export class Register_EmployeeComponent implements OnInit {
         .subscribe(
           data => {
             this.alertService.success('Registration was successful', true);
+            window.document.location.reload();
           },
           error => {
             this.alertService.error('Error, Registration was unsuccesful');

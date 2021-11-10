@@ -84,7 +84,7 @@ private loadAll() {
   Report_Query() {
     let editReport_QueryInfo = this.myValue;
 
-    this.model2.EquipmentQueryId  = this.x[editReport_QueryInfo].equipmentQueryId;
+    this.model2.EquipmentQueryId  = this.x[editReport_QueryInfo].id;
     this.model2.EquipmentQueryStatusId = this.equipmentQueryForm.get('queryStatus')?.value;;
 
     this.yService.resolvequery(this.model2)
@@ -94,6 +94,7 @@ private loadAll() {
                     this.alertService.success('Query status was updated successfully', true);
                     this.newReport_QueryClicked = !this.newReport_QueryClicked;
                     this.loadAll()
+                    window.document.location.reload();
                 },
                 error => {
                     this.alertService.error('Error, Query status was unsuccesfully updated');
