@@ -43,7 +43,7 @@ export class Lesson_ContentService {
     return this.http.delete(`${this.url}/DeleteLessonContent/` + id + '/' + this.userId);
   }
   update(id:number, lesson_content: Lesson_Content) {
-    return this.http.put(`${this.url}/UpdateLessonContent`+ id + '/' + this.userId, lesson_content);
+    return this.http.put(`${this.url}/UpdateLessonContent/`+ id + '/' + this.userId, lesson_content);
   }
   create(lesson_content: Lesson_Content) {
     return this.http.post(`${this.url}/UploadContentLink/` + this.userId, lesson_content);

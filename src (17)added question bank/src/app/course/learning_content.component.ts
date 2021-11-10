@@ -105,22 +105,26 @@ export class Learning_ContentComponent implements OnInit {
         });
   }
 
-  editLesson_Content(editLesson_ContentInfo: number) {
-    this.model2.LessonContent1 = this.lesson_content[editLesson_ContentInfo].LessonContent1;
-    this.model2.LessonContentDescription = this.lesson_content[editLesson_ContentInfo].LessonContentDescription;
+  editLesson_Content(editLesson_ContentInfo) {
+    alert(editLesson_ContentInfo);
+    console.log("lesson content to edit",editLesson_ContentInfo )
+    this.model2.LessonContent1 = editLesson_ContentInfo.lessonContent1;
+    
+    this.model2.LessonContentDescription = editLesson_ContentInfo.lessonContentDescription;
     this.myValue = editLesson_ContentInfo;
   }
 
   updateLesson_Content() {
     let editLesson_ContentInfo = this.myValue;
-
+console.log("my value",this.myValue['lessonConentId'])
     this.model3.LessonOutcomeId = this.id;
+
     this.model3.LessonContentDescription = this.model2.LessonContentDescription;
     this.model3.LessonContent1 = this.model2.LessonContent1;
 
-    for (let i = 0; i < this.lesson_content.length; i++) {
-      if (i == editLesson_ContentInfo) {
-        this.lesson_contentService.update(this.lesson_content[editLesson_ContentInfo].LessonConentId, this.model3)
+    // for (let i = 0; i < this.lesson_content.length; i++) {
+    //   if (i == editLesson_ContentInfo) {
+        this.lesson_contentService.update(this.myValue['lessonConentId'], this.model3)
           .pipe(first())
           .subscribe(
             data => {
@@ -130,8 +134,8 @@ export class Learning_ContentComponent implements OnInit {
             error => {
               this.alertService.error('Error, Update was unsuccesful');
             });
-      }
-    }
+    //   }
+    // }
 
   }
 
