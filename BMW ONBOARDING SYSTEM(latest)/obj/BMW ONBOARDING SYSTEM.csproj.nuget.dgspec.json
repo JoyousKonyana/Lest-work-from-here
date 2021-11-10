@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj": {}
+    "C:\\Users\\konya\\OneDrive\\Documents\\Second semester\\INF 324\\Combined lecture slides\\Lest-work-from-here\\BMW ONBOARDING SYSTEM(latest)\\BMW ONBOARDING SYSTEM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj": {
+    "C:\\Users\\konya\\OneDrive\\Documents\\Second semester\\INF 324\\Combined lecture slides\\Lest-work-from-here\\BMW ONBOARDING SYSTEM(latest)\\BMW ONBOARDING SYSTEM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj",
+        "projectUniqueName": "C:\\Users\\konya\\OneDrive\\Documents\\Second semester\\INF 324\\Combined lecture slides\\Lest-work-from-here\\BMW ONBOARDING SYSTEM(latest)\\BMW ONBOARDING SYSTEM.csproj",
         "projectName": "BMW ONBOARDING SYSTEM",
-        "projectPath": "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj",
+        "projectPath": "C:\\Users\\konya\\OneDrive\\Documents\\Second semester\\INF 324\\Combined lecture slides\\Lest-work-from-here\\BMW ONBOARDING SYSTEM(latest)\\BMW ONBOARDING SYSTEM.csproj",
         "packagesPath": "C:\\Users\\konya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\obj\\",
+        "outputPath": "C:\\Users\\konya\\OneDrive\\Documents\\Second semester\\INF 324\\Combined lecture slides\\Lest-work-from-here\\BMW ONBOARDING SYSTEM(latest)\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\konya\\AppData\\Roaming\\NuGet\\NuGet.Config",

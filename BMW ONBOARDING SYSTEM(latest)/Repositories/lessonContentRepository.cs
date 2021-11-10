@@ -33,8 +33,8 @@ namespace BMW_ONBOARDING_SYSTEM.Repositories
         {
             IQueryable<LessonContent> result = _inf370ContextDB.LessonContent.Include(l => l.LessonContentType).
                  Include(l => l.ArchiveStatus).
-                 Include(x => x.LessonOutcome).ThenInclude(x => x.Lesson).ThenInclude(x => x.Course);
-                //Include(x => x.lesson).Where(xx => xx.LessonOutcomeId == Id).
+                 Include(x => x.LessonOutcome).ThenInclude(x => x.Lesson).ThenInclude(x => x.Course)
+                .Where(xx => xx.LessonOutcomeId == Id);
                
                
 
