@@ -13,6 +13,8 @@ import { CourseService, AlertService } from '../_services';
 
 export class Take_CourseComponent implements OnInit {
 
+
+
   course: any[] = [];
 
   constructor(
@@ -21,7 +23,12 @@ export class Take_CourseComponent implements OnInit {
 
       private router: Router
   ) {
-
+      // var movies = localStorage.getItem("user");
+      // movies  = JSON.parse(movies);
+      // if(movies){
+      //   this.userId = movies['id'];
+      //   console.log(movies['id']);
+      // }
   }
 
   ngOnInit() { 
@@ -39,18 +46,6 @@ export class Take_CourseComponent implements OnInit {
       error => {
         this.alertService.error('Error, Data was unsuccesfully retrieved');
       } 
-    );
-  }
-
-    newUser_RoleClicked = false;
-
-  //Remove this bad boy
-  testData() {
-    this.course.push(
-      { courseId: 1, courseDescription: 'jfsd', courseDueDate: '213', courseName: '3212'},
-      { courseId: 2, courseDescription: 'fklsdm', courseDueDate: '21', courseName: 'as'},
-      { courseId: 3, courseDescription: 'cxzkl', courseDueDate: '21', courseName: ''},
-      { courseId: 4, courseDescription: '321', courseDueDate: '', courseName: ''},
     );
   }
 

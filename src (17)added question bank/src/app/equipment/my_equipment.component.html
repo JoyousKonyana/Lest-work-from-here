@@ -37,23 +37,28 @@
   <table class="table table-striped">
   <thead>
     <tr>
+      <th class="col">Equipment Serial Number</th>
       <th class="col">Equipment Type</th>
       <th class="col">Check Out Date</th>
-      <!-- <th class="col">Check Out Condition</th> -->
       <th class="col">Check In Date</th>
-      <!-- <th class="col">Check In Condition</th> -->
+      <th class="col">Query Description</th>
+      <th class="col">Query Status</th>
       <th class="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let equipment of x; let i = index">
+
+      <td>{{equipment.equipment.equipmentSerialNumber}}</td>
       <td>{{equipment.equipment.equipmentType.equipmentTypeDescription}}</td>
       <td>{{equipment.equipmentCheckOutDate}}</td>
       <td>
         <div  *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate"> - </div>
         <div  *ngIf="equipment.equipmentCheckOutDate != equipment.equipmentCheckInDate">{{equipment.equipmentCheckInDate}}</div>
       </td>
-      
+      <td>{{equipment.equipmentQueries.equipmentQueryDescription}}</td>
+      <td>{{equipment.equipmentQueries.queryStatus.equipmentQueryDescription}}</td>
+
       <td>
       <div *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate ">
         <label>Check Equipment: </label>

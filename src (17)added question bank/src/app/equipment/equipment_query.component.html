@@ -13,16 +13,18 @@
       <h5>Query</h5>
       <a class="btn btn-link" (click)="CloseReport_QueryBtn()">X</a>
     <form>
-        <div class="form-group position">
-            <mat-radio-group 
-              class="answer-options-container"
-              [(ngModel)]="queryStatusId">
-              <mat-radio-button 
-                *ngFor="let query of query.answerOptions"
-                [value]="query.equipmentQueryStatusId">
-                {{query.equipmentQueryDescription}}</mat-radio-button>
-            </mat-radio-group>
-        </div>
+        
+      <div class="form-group position">
+        <h4>Select Query Status</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>Query Status</mat-label>
+          <mat-select formControlName="queryStatus">
+            <mat-option *ngFor="let item of query" [value]="item.id" >
+              {{item.equipmentQueryDescription }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     
     </form>
     </div>
@@ -44,6 +46,7 @@
         <th class="col">Equipment Serial Number</th>
         <th class="col">Equipment Type</th>
         <th class="col">Onboarder</th>
+        <th class="col">Query Status</th>
         <th class="col">Action</th>
       </tr>
     </thead>
@@ -53,6 +56,7 @@
         <td>{{item.equipmentQueryDate}}</td>
         <td>{{item.equipment.equipmentSerialNumber}}</td>
         <td>{{item.equipment.equipmentTypeDescription}}</td>
+        <td>{{item.queryStatus.equipmentQueryDescription </td>
         <td>{{item.onboarder.fullName}}</td>
         <td>
         <div>
