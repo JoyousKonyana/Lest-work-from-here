@@ -11,8 +11,6 @@
 Register Equipment</div>
 <br/>
 </div>
-<div class="addEmployeeBtnContainer">
-</div>
 </div>
 
 <hr>
@@ -87,35 +85,6 @@ Register Equipment</div>
 </form>
 </div>
 <hr>
-</div>
-
-<br/>
-
-<div *ngIf="newReport_QueryClicked">
-<div class="formWrapper">
-  <h5>Report Query</h5>
-  <a class="btn btn-link" (click)="CloseReport_QueryBtn()">X</a>
-<form>
-<div class="form-group name">
-  <label>Enter Equipment Query Description:</label>
-  <input type="text" 
-         class="form-control"
-         id="EquipmentQueryDescription"
-         name="EquipmentQueryDescription"
-         [(ngModel)]="model4.EquipmentQueryDescription"
-         placeholder="Broken Ear Plugs">
-</div>
- <div class="form-group position">
-  <label>Enter Equipment Query Date:</label>
-   <input type="date"
-         class="form-control"
-         id="description"
-         name="description"
-         [(ngModel)]="model4.EquipmentQueryDate">
-</div>
-<button class="btn btn-success" type="submit" (click)="updateReport_Query()">Report Query</button>
-</form>
-</div>
 </div>
 
 <br/>
@@ -233,7 +202,6 @@ Update</button>
           <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
           </svg>
         </button>
-        <button class="btn btn-warning" (click)="editReport_Query(i)">Report Query</button>
       </td>
     </tr>
 
