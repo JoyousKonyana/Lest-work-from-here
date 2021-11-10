@@ -121,11 +121,14 @@ console.log("equip", this.model2)
             data => {
                 console.log('data: ', data);
                 this.alertService.success('Report was successful', true);
+                window.document.location.reload();
                 this.loadAll()
             },
             error => {
                 if(error.status === 200) {
+                 
                   this.alertService.success('Report was successful', true);
+                
                 } else {
                   this.alertService.error('Error, Assign was unsuccesful');
                   console.log('Error: ', error);

@@ -86,6 +86,8 @@ export class Learning_ContentComponent implements OnInit {
             this.loadAll();
             this.newLesson_ContentClicked = !this.newLesson_ContentClicked;
             this.model = {};
+            window.document.location.reload();
+          
           },
           error => {
             this.alertService.error('Error, Creation (Lesson Content) was unsuccesful');
@@ -100,6 +102,7 @@ export class Learning_ContentComponent implements OnInit {
         data => {
           this.alertService.success('Deletion (Lesson Content) was successful', true);
           this.loadAll();
+          window.document.location.reload();
         },
         error => {
           this.alertService.error('Error, Deletion (Lesson Content) was unsuccesful');
@@ -108,7 +111,7 @@ export class Learning_ContentComponent implements OnInit {
   }
 
   editLesson_Content(editLesson_ContentInfo) {
-    alert(editLesson_ContentInfo);
+   
     console.log("lesson content to edit",editLesson_ContentInfo )
     this.model2.LessonContent1 = editLesson_ContentInfo.lessonContent1;
     
@@ -132,6 +135,7 @@ console.log("my value",this.myValue['lessonConentId'])
             data => {
               this.alertService.success('Update was successful', true);
               this.loadAll();
+              window.document.location.reload();
             },
             error => {
             
