@@ -111,8 +111,8 @@ equipid:number;
     console.log('Json Data: ', data);
     const date = new Date().toISOString();
 
-    this.model2.EquipmentId = data.EquipmentId;
-    this.model2.OnboarderId = data.OnboarderId;
+    this.model2.EquipmentId = this.myValue;
+    this.model2.OnboarderId = this.modelequip;
     this.model2.EquipmentQueryDate = date;
 console.log("equip", this.model2)
     this.yService.create(this.model2)
