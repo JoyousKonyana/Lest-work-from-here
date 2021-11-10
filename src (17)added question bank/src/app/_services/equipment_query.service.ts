@@ -35,11 +35,9 @@ export class Equipment_QueryService {
   getAllEquipment_Query(): Observable<any> {  
     return this.http.get<any>(`${this.url}/GetAllEqipmentQueries`);  
   }  
-
   getEquipment_QueryById(id: number): Observable<Equipment_Query> {  
       return this.http.get<Equipment_Query>(`${this.url}/GetQuerybyid/` +id);  
     }
-
   create(x:Equipment_Query) {
     return this.http.post(`${this.url}/ReportEquipmentQuery`, x);
   }
@@ -59,8 +57,8 @@ export class Equipment_QueryService {
     return this.http.put(`${this.url2}/UpdateQueryStatus/` + id + '/' + this.userId, query_status);
   }
 
-  deletequery(resolve: number){
-    return this.http.delete(`${this.url}/Delete/`+resolve);
+  resolvequery(resolve: ResolveQuery){
+    return this.http.put(`${this.url}/ResolveQuery/`+this.userId, resolve);
   }
 
   url3 = 'https://localhost:44319/api/Equipment'; 
