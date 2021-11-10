@@ -59,6 +59,7 @@ export class Learning_ContentComponent implements OnInit {
             .subscribe(
                 lesson_content => {
                 this.lesson_content = lesson_content;
+                console.log(this.lesson_content)
                 },
                 error => {
                 this.alertService.error('Error, Could not retrieve course lessons');
@@ -102,6 +103,7 @@ export class Learning_ContentComponent implements OnInit {
         },
         error => {
           this.alertService.error('Error, Deletion (Lesson Content) was unsuccesful');
+          this.loadAll();
         });
   }
 
@@ -132,7 +134,9 @@ console.log("my value",this.myValue['lessonConentId'])
               this.loadAll();
             },
             error => {
+            
               this.alertService.error('Error, Update was unsuccesful');
+              this.loadAll();
             });
     //   }
     // }
