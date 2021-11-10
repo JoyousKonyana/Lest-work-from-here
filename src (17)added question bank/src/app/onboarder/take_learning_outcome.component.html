@@ -1,11 +1,17 @@
-<nav aria-label="breadcrumb">
+<!-- <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a>Course</a></li>
     <li class="breadcrumb-item"><a>Lesson</a></li>
     <li class="breadcrumb-item active" aria-current="page">Lesson Outcome</li>
   </ol>
-</nav>
+</nav> -->
+ <div class="page-title" *ngIf="lesson_outcome.length >0">
+  {{lesson_outcome[0].lesson.course.courseName}} ▶    {{lesson_outcome[0].lesson.lessonName}} ▶  Lesson Outcomes
+</div>
 
+<div class="page-title" *ngIf="lesson_outcome.length ==0">
+ This  Lesson outcomen has no material related to it
+</div>  
 <h1>Course Center - Lesson Outcome</h1>
 
 <div class="row">

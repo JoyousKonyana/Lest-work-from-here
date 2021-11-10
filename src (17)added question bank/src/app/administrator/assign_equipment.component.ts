@@ -96,6 +96,8 @@ private loadAll() {
             .subscribe(
                 data => {
                     this.alertService.success('Assign was successful', true);
+                    
+window.document.location.reload();
                     console.log('Data: ', data);
                 },
                 error => {

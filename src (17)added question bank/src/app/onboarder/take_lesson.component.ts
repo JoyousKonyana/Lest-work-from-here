@@ -43,6 +43,7 @@ export class Take_LessonComponent implements OnInit {
     .subscribe(
       lesson => {
         this.lesson = lesson;
+        console.log("lesson", this.lesson);
       },
       error => {
         this.alertService.error('Error, Data was unsuccesfully retrieved');

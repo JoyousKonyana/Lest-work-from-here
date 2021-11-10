@@ -41,6 +41,7 @@ export class Take_Learning_OutcomeComponent implements OnInit {
     .subscribe(
       lesson_outcome => {
         this.lesson_outcome = lesson_outcome;
+        console.log("this is lesson outcomes",this.lesson_outcome);
       },
       error => {
         this.alertService.error('Error, Data was unsuccesfully retrieved');

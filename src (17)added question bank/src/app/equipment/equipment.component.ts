@@ -119,6 +119,7 @@ export class EquipmentComponent implements OnInit {
                 data => {
                     this.alertService.success('Equipment was successfully Registered', true);
                     this.loadAll();
+                    window.document.location.reload();
                     this.newEquipmentClicked = !this.newEquipmentClicked;
                 },
                 error => {

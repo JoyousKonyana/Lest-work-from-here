@@ -41,7 +41,7 @@
       <th class="col">Equipment Type</th>
       <th class="col">Check Out Date</th>
       <th class="col">Check In Date</th>
-      <th class="col">Query</th>
+     
       <th class="col">Action</th>
     </tr>
   </thead>
@@ -55,14 +55,7 @@
         <div  *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate"> - </div>
         <div  *ngIf="equipment.equipmentCheckOutDate != equipment.equipmentCheckInDate">{{equipment.equipmentCheckInDate}}</div>
       </td>
-      <td>
-        <div *ngFor="let query of equipment.onboarder.equipmentQueries; let x = index">
-          <dl>
-            <dt>{{query.equipmentQueryDescription}}</dt>
-            <dd>- {{query.queryStatus.equipmentQueryDescription}}</dd>
-          </dl>
-        </div>
-      </td>
+      
 
       <td>
       <div *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate ">
