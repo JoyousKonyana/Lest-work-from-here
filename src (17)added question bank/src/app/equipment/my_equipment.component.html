@@ -56,10 +56,10 @@
         <div  *ngIf="equipment.equipmentCheckOutDate != equipment.equipmentCheckInDate">{{equipment.equipmentCheckInDate}}</div>
       </td>
       <td>
-        <div *ngFor="let query of equipment.equipmentQueries">
+        <div *ngFor="let query of equipment.onboarder.equipmentQueries; let x = index">
           <dl>
-            <dt>{{equipment.equipmentQueries.equipmentQueryDescription}}</dt>
-            <dd>- {{equipment.equipmentQueries.queryStatus.equipmentQueryDescription}}</dd>
+            <dt>{{query.equipmentQueryDescription}}</dt>
+            <dd>- {{query.queryStatus.equipmentQueryDescription}}</dd>
           </dl>
         </div>
       </td>

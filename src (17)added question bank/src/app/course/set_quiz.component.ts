@@ -46,6 +46,7 @@ export class Set_QuizComponent implements OnInit {
   @ViewChild('selectedQuestionsFromBank') selectedQuestionsFromBank: any
   constructor(
     private alertService: AlertService,
+    private quizService: QuizService,
     private _activatedRoute: ActivatedRoute,
     private _manageCoursesService: ManageCoursesService,
     private _ngxSpinner: NgxSpinnerService,
