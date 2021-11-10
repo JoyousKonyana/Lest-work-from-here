@@ -131,14 +131,6 @@ equipid:number;
                 }
               });
 
-    // for(let i = 0; i < this.x.length; i++) {
-
-    //   if(i == editReport_QueryInfo) 
-    //   {
-    
-    //   }
-    // }
-
     this.newReport_QueryClicked = !this.newReport_QueryClicked;
   }
 

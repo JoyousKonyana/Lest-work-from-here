@@ -44,7 +44,6 @@ export class Take_CourseComponent implements OnInit {
     .pipe(first())
     .subscribe(
       course => {
-        //this.faq = faq;
         this.course = course;
       },
       error => {

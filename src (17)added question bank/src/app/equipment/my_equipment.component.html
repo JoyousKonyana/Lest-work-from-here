@@ -41,8 +41,7 @@
       <th class="col">Equipment Type</th>
       <th class="col">Check Out Date</th>
       <th class="col">Check In Date</th>
-      <th class="col">Query Description</th>
-      <th class="col">Query Status</th>
+      <th class="col">Query</th>
       <th class="col">Action</th>
     </tr>
   </thead>
@@ -56,8 +55,14 @@
         <div  *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate"> - </div>
         <div  *ngIf="equipment.equipmentCheckOutDate != equipment.equipmentCheckInDate">{{equipment.equipmentCheckInDate}}</div>
       </td>
-      <td>{{equipment.equipmentQueries.equipmentQueryDescription}}</td>
-      <td>{{equipment.equipmentQueries.queryStatus.equipmentQueryDescription}}</td>
+      <td>
+        <div *ngFor="let query of equipment.equipmentQueries">
+          <dl>
+            <dt>{{equipment.equipmentQueries.equipmentQueryDescription}}</dt>
+            <dd>- {{equipment.equipmentQueries.queryStatus.equipmentQueryDescription}}</dd>
+          </dl>
+        </div>
+      </td>
 
       <td>
       <div *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate ">
@@ -65,7 +70,6 @@
         <input (click)="openDialog(equipment)" class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
       </div>
       <button *ngIf="isChecked" class="btn btn-danger" (click)="editReport_Query(equipment.equipmentId)">Report Query</button>
-      <button class="btn btn-info">Read More</button>
       </td>
       
     </tr>
