@@ -36,7 +36,7 @@ export class CourseService {
   }
 
   getCourseByOnboaderId(id: number): Observable<any> {
-    return this.http.get<any>(`${this.url}/GetCourseById/` + id);
+    return this.http.get<any>(`${this.url}/GetCourseByonboarderId/` + id);
   }
 
  
@@ -51,7 +51,7 @@ export class CourseService {
 
   create(course: Course) {
     var number = this.userId;
-   alert(this.userId);
+   //alert(this.userId);
    console.log("course", number)
     return this.http.post(`${this.url}/CreateCourse/` + this.userId, course);
   }

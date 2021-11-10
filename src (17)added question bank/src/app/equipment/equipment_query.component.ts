@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 
 import { AssignEquipment, Equipment_Query, EquipmentQuery } from '../_models';
 import { EquipmentService, Equipment_QueryService, AlertService } from '../_services';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({ 
     templateUrl: 'equipment_query.component.html',
@@ -24,6 +25,7 @@ export class EquipmentQueryComponent implements OnInit {
     private queryService: Query_StatusService,
     private alertService: AlertService,
     private yService: Equipment_QueryService,
+    private form: FormBuilder,
 ) {
 
 }
@@ -55,7 +57,11 @@ private loadAll() {
           this.alertService.error('Error, Data was unsuccesfully retrieved');
         }
       );
-}
+  }
+
+  equipmentQueryForm = this.form.group({
+    queryStatus: new FormControl('', Validators.required),
+  })
 
     newUser_RoleClicked = false;
 
@@ -71,40 +77,30 @@ private loadAll() {
   myValue = 0;
 
   editReport_Query(editReport_QueryInfo: number) {
-    // this.newReport_QueryClicked = !this.newReport_QueryClicked;
-    // this.myValue = editReport_QueryInfo;
-    this.yService.deletequery(editReport_QueryInfo)
-    .pipe(first())
-    .subscribe(
-        data => {
-            this.alertService.success('Query status was updated successfully', true);
-            this.loadAll()
-        },
-        error => {
-            this.alertService.error('Error, Query status was unsuccesfully updated');
-        });
-    this.loadAll();
+     this.newReport_QueryClicked = !this.newReport_QueryClicked;
+     this.myValue = editReport_QueryInfo;
   }
 
-  // Report_Query() {
-  //   let editReport_QueryInfo = this.myValue;
+  Report_Query() {
+    let editReport_QueryInfo = this.myValue;
 
-  //   this.model2.EquipmentQueryId  = this.x[editReport_QueryInfo].EquipmentQueryId;
-  //   this.model2.EquipmentQueryStatusId = this.queryStatusId;
+    this.model2.EquipmentQueryId  = this.x[editReport_QueryInfo].equipmentQueryId;
+    this.model2.EquipmentQueryStatusId = this.equipmentQueryForm.get('queryStatus')?.value;;
 
-  //   this.yService.deletequery(this.model2)
-  //           .pipe(first())
-  //           .subscribe(
-  //               data => {
-  //                   this.alertService.success('Query status was updated successfully', true);
-  //                   this.loadAll()
-  //               },
-  //               error => {
-  //                   this.alertService.error('Error, Query status was unsuccesfully updated');
-  //               });
+    this.yService.resolvequery(this.model2)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.alertService.success('Query status was updated successfully', true);
+                    this.newReport_QueryClicked = !this.newReport_QueryClicked;
+                    this.loadAll()
+                },
+                error => {
+                    this.alertService.error('Error, Query status was unsuccesfully updated');
+                });
 
-  //   this.newReport_QueryClicked = !this.newReport_QueryClicked;
-  // }
+    this.newReport_QueryClicked = !this.newReport_QueryClicked;
+  }
 
   CloseReport_QueryBtn() {
     this.newReport_QueryClicked = !this.newReport_QueryClicked;

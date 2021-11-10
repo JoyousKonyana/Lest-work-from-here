@@ -20,7 +20,7 @@
           <mat-label>Query Status</mat-label>
           <mat-select formControlName="queryStatus">
             <mat-option *ngFor="let item of query" [value]="item.id" >
-              {{item.equipmentQueryDescription }}
+              {{item.equipmentQueryDescription}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -55,14 +55,11 @@
         <td>{{item.equipmentQueryDescription}}</td>
         <td>{{item.equipmentQueryDate}}</td>
         <td>{{item.equipment.equipmentSerialNumber}}</td>
-        <td>{{item.equipment.equipmentTypeDescription}}</td>
-        <td>{{item.queryStatus.equipmentQueryDescription </td>
+        <td>{{item.equipment.equipmentType.equipmentTypeDescription}}</td>
         <td>{{item.onboarder.fullName}}</td>
+        <td>{{item.queryStatus.equipmentQueryDescription}}</td>
         <td>
-        <div>
-          
-        </div>
-        <button class="btn btn-danger" (click)="editReport_Query(item.equipmentQueryId)">Resolve Query</button>
+          <button class="btn btn-danger" (click)="editReport_Query(i)">Resolve Query</button>
         </td>
       </tr>
     </tbody>
