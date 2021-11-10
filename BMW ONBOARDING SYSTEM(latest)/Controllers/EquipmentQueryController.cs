@@ -64,8 +64,15 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
             {
                 var query = _mapper.Map<EquipmentQuery>(model);
                 query.QueryStatusId = 1;
-               
-                _queryRepository.Add(query);
+
+                //Eqquer
+                EquipmentQuery newQuery = new EquipmentQuery();
+                newQuery.EquipmentId = model.EquipmentId;
+                newQuery.QueryStatusId = 1;
+                newQuery.OnboarderID = Convert.ToInt32(model.OnboarderId);
+                newQuery.EquipmentQueryDescription = model.EquipmentQueryDescription;
+                newQuery.EquipmentQueryDate = DateTime.Now;
+                _queryRepository.Add(newQuery);
 
                 if (await _queryRepository.SaveChangesAsync())
                 {
@@ -75,7 +82,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
             catch (Exception e )
             {
 
-                BadRequest(e.Message);
+                BadRequest(e);
             }
             return BadRequest();
         }
