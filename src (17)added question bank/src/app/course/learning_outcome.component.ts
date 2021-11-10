@@ -92,6 +92,7 @@ export class Learning_OutcomeComponent implements OnInit {
             this.alertService.success('Creation was successful', true);
             // this.lesson_outcome_load.push(this.model);
             this.loadAll();
+            document.location.reload ();
             this.newLesson_OutcomeClicked = !this.newLesson_OutcomeClicked;
             this.model = {};
           },
@@ -109,6 +110,7 @@ export class Learning_OutcomeComponent implements OnInit {
         data => {
           this.alertService.success('Deletion was successful', true);
           this.loadAll();
+          document.location.reload ()
         },
         error => {
           this.alertService.error('Error, Deletion was unsuccesful');
@@ -143,6 +145,7 @@ export class Learning_OutcomeComponent implements OnInit {
             data => {
               this.alertService.success('Update was successful', true);
               this.loadAll();
+              document.location.reload ()
               this.model2 = {};
             },
             error => {
