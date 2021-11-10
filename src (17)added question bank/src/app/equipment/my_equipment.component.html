@@ -49,10 +49,11 @@
     <tr *ngFor="let equipment of x; let i = index">
       <td>{{equipment.equipment.equipmentType.equipmentTypeDescription}}</td>
       <td>{{equipment.equipmentCheckOutDate}}</td>
-      <!-- <td>{{equipment.EquipmentCheckOutCondition}}</td> -->
-      <td  *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate"> - </td>
-      <td  *ngIf="equipment.equipmentCheckOutDate != equipment.equipmentCheckInDate">{{equipment.equipmentCheckInDate}}</td>
-      <!-- <td>{{equipment.EquipmentCheckInCondition}}</td> -->
+      <td>
+        <div  *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate"> - </div>
+        <div  *ngIf="equipment.equipmentCheckOutDate != equipment.equipmentCheckInDate">{{equipment.equipmentCheckInDate}}</div>
+      </td>
+      
       <td>
       <div *ngIf="equipment.equipmentCheckOutDate === equipment.equipmentCheckInDate ">
         <label>Check Equipment: </label>

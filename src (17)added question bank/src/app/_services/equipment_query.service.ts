@@ -43,7 +43,7 @@ export class Equipment_QueryService {
   create(x:Equipment_Query) {
     return this.http.post(`${this.url}/ReportEquipmentQuery`, x);
   }
-  d
+  
   url2 = 'https://localhost:44319/api/EquipmentQueryStatus'; 
   //Status
   createQueryStatus(x:Query_Status) {

@@ -47,6 +47,7 @@ import {
 import {
   EquipmentComponent,
   SS_EquipmentComponent,
+  Equipment_BrandComponent,
   My_EquipmentComponent,
   EquipDashboardComponent,
   QueryComponent,
@@ -126,15 +127,6 @@ const routes: Routes = [
     path: 'forgotpassword',
     component: ForgotPasswordComponent
   },
-  {
-    path: 'equipment_type',
-    component: Equipment_TypeComponent,
-    //canActivate: [AuthGuard]
-  },
-  {
-    path: 'equipment_query',
-    component: EquipmentQueryComponent
-  },
 
   //Role
   {
@@ -146,8 +138,7 @@ const routes: Routes = [
     path: 'query',
     component: QueryComponent,
     //canActivate: [AuthGuard]
-  }
-  ,
+  },
 
   //Users path pages
   {
@@ -362,6 +353,10 @@ const routes: Routes = [
     //canActivate: [AuthGuard]
   },
   {
+    path: 'equipment_brand',
+    component: Equipment_BrandComponent
+  },
+  {
     path: 'equipment',
     component: EquipmentComponent,
     //canActivate: [AuthGuard]
@@ -375,6 +370,15 @@ const routes: Routes = [
     path: 'equipdashboard',
     component: EquipDashboardComponent,
 
+  },
+  {
+    path: 'equipment_type',
+    component: Equipment_TypeComponent,
+    //canActivate: [AuthGuard]
+  },
+  {
+    path: 'equipment_query',
+    component: EquipmentQueryComponent
   },
 
   //Profile

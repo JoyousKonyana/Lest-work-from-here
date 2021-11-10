@@ -3,19 +3,17 @@ import { EquipmentService } from './../_services/equipment.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-
-import { Course } from '../_models';
 import { CourseService, AlertService } from '../_services';
 
 import { Router } from '@angular/router';
-import { ModalService } from '../_modal';
+import { Equipment_Brand } from '../_models';
 
 @Component({
-  templateUrl: 'equipment_type.component.html',
+  templateUrl: 'equipment_brand.component.html',
   styleUrls: ['./ss_equipment.component.css']
 })
 
-export class Equipment_TypeComponent implements OnInit {
+export class Equipment_BrandComponent implements OnInit {
   equipment_type: any;
 
   searchText = '';
@@ -28,9 +26,9 @@ export class Equipment_TypeComponent implements OnInit {
   model: any = {};
   model2: any = {};
 
-  model3: Equipment_Type = {
-      EquipmentTypeId: 0,
-      EquipmentTypeDescription: ''
+  model3: Equipment_Brand = {
+      EquipmentBrandId: 0,
+      EquipmentBrandName: ''
   };
 
   constructor(
@@ -45,7 +43,7 @@ export class Equipment_TypeComponent implements OnInit {
   }
 
   private loadAll() {
-    this.equipmentService.getAllEquipment_Type()
+    this.equipmentService.getAllEquipment_Brand()
       .pipe(first())
       .subscribe(
         equipment_type => {
@@ -64,14 +62,14 @@ export class Equipment_TypeComponent implements OnInit {
       this.model = {};
     }
     else if ((Object.keys(this.model).length == 1)) {
-      this.model3.EquipmentTypeDescription = this.model.EquipmentTypeDescription;
+      this.model3.EquipmentBrandName = this.model.EquipmentTypeDescription;
 
       for (let i = 0; i < this.equipment_type.length; i++) {
-        if(this.model3.EquipmentTypeDescription === this.equipment_type[i].equipmentTypeDescription){
+        if(this.model3.EquipmentBrandName === this.equipment_type[i].equipmentBrandName){
           this.alertService.error('Creation was unsuccessful, the equipment type already exists in the system');
         }
         else{
-          this.equipmentService.createType(this.model3)
+          this.equipmentService.createBrand(this.model3)
             .pipe(first())
             .subscribe(
               data => {
@@ -89,7 +87,7 @@ export class Equipment_TypeComponent implements OnInit {
   }
 
   deleteEquipment_Type(i: number) {
-    this.equipmentService.deleteType(i)
+    this.equipmentService.deleteBrand(i)
       .pipe(first())
       .subscribe(
         data => {
@@ -102,7 +100,7 @@ export class Equipment_TypeComponent implements OnInit {
   }
 
   editEquipment_Type(editEquipment_TypeInfo: number) {
-    this.model2.EquipmentTypeDescription = this.equipment_type[editEquipment_TypeInfo].equipmentTypeDescription;
+    this.model2.EquipmentBrandName = this.equipment_type[editEquipment_TypeInfo].equipmentBrandName;
     this.myValue = editEquipment_TypeInfo;
   }
 
@@ -110,25 +108,25 @@ export class Equipment_TypeComponent implements OnInit {
     let editEquipment_TypeInfo = this.myValue;
 
     for (let i = 0; i < this.equipment_type.length; i++) {
-      
-      this.model3.EquipmentTypeDescription = this.model2.EquipmentTypeDescription;
 
-      if(this.model3.EquipmentTypeDescription === this.equipment_type[i].equipmentTypeDescription){
-          this.alertService.error('Update was unsuccessful, the equipment type already exists in the system');
-      }
-      else{
-        this.equipmentService.updateType(this.equipment_type[editEquipment_TypeInfo].equipmentTypeId, this.model3)
-          .pipe(first())
-          .subscribe(
-            data => {
-              this.alertService.success('Update was successful', true);
-              this.loadAll();
-              this.model2 = {};
-            },
-            error => {
-              this.alertService.error('Error, Update was unsuccesful');
-            });
-      }
+        this.model3.EquipmentBrandName  = this.model2.EquipmentBrandName ;
+
+        if(this.model3.EquipmentBrandName === this.equipment_type[i].equipmentBrandName){
+            this.alertService.error('Update was unsuccessful, the equipment type already exists in the system');
+        }
+        else{
+            this.equipmentService.updateBrand(this.equipment_type[editEquipment_TypeInfo].equipmentBrandId, this.model3)
+            .pipe(first())
+            .subscribe(
+                data => {
+                this.alertService.success('Update was successful', true);
+                this.loadAll();
+                this.model2 = {};
+                },
+                error => {
+                this.alertService.error('Error, Update was unsuccesful');
+                });
+        }
     }
   }
 

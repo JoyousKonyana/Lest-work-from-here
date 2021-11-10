@@ -1,4 +1,5 @@
 ﻿
+
 import { AlertComponent } from './_component/alert.component';
 
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -35,6 +36,7 @@ import {
   QueryComponent,
   Equipment_TypeComponent,
   EquipmentQueryComponent,
+  Equipment_BrandComponent,
 
   //Charts
   TypeChartComponent,
@@ -192,6 +194,7 @@ import { CheckequipComponent } from './equipment/checkequip/checkequip.component
 
     //Equipment
     EquipmentComponent,
+    Equipment_BrandComponent,
     SS_EquipmentComponent,
     My_EquipmentComponent,
     EquipDashboardComponent,
