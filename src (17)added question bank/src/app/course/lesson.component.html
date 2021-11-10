@@ -1,15 +1,21 @@
-<nav aria-label="breadcrumb">
+<!-- <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a>Course</a></li>
     <li class="breadcrumb-item active" aria-current="page">Lesson</li>
   </ol>
-</nav>
+</nav> -->
 <!-- <div class="page-title" *ngIf="lesson.length >0">
-  {{lesson[0].lesson.course.courseName}} ▶  
+  {{lesson[0].course.courseName}} ▶  {{lesson[0].lesson.lessonName}}
 </div> -->
 
+<div class="page-title" *ngIf="lesson.length >0">
+  <!-- {{lesson[0].course.courseName}} ▶   -->
+  
+  {{lesson[0].course.courseName}} ▶ {{lesson[0].lessonName}}
+</div>
+
 <!-- <div class="page-title" *ngIf="lesson_content.length ==0">
-  {{lesson_content[0].lessonOutcome.lesson.course.courseName}} ▶  {{lesson_content[0].lessonOutcome.lesson.lessonName}} ▶ {{lesson_content[0].lessonOutcome.lessonOutcomeName}} ▶ Has no Lesson content
+  {{lesson_content[0].course.courseName}} ▶  {{lesson_content[0].lessonOutcome.lesson.lessonName}} ▶ {{lesson_content[0].lessonOutcome.lessonOutcomeName}} ▶ Has no Lesson content
 </div>  -->
 <div class="AddEmployeeTitleContainer">
   <div class="addEmployeeTitleContainer">

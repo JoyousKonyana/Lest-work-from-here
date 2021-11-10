@@ -27,7 +27,7 @@ namespace BMW_ONBOARDING_SYSTEM.Repositories
         }
         public async Task<Lesson[]> GetAllLessonAsync()
         {
-            IQueryable<Lesson> lessons = _inf370ContextDB.Lesson;
+            IQueryable<Lesson> lessons = _inf370ContextDB.Lesson.Include(x => x.Course);
 
             return await lessons.ToArrayAsync();
         }
@@ -36,7 +36,7 @@ namespace BMW_ONBOARDING_SYSTEM.Repositories
 
         public Task<Lesson[]> GetLessonByCourseIdAsync(int courseID)
         {
-            IQueryable<Lesson> existingLesson = _inf370ContextDB.Lesson.Where(id => id.CourseID == courseID);
+            IQueryable<Lesson> existingLesson = _inf370ContextDB.Lesson.Include(x=>x.Course).Where(id => id.CourseID == courseID);
 
 
             return existingLesson.ToArrayAsync();

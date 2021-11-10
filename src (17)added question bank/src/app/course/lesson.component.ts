@@ -55,7 +55,8 @@ export class LessonComponent implements OnInit {
 
   ngOnInit() {
     this._Activatedroute.paramMap.subscribe(params => {
-      this.id = params.get('id');
+      this.id = params.get('id')
+      alert(this.id);
     });
 
     this.loadAll();
@@ -68,6 +69,7 @@ export class LessonComponent implements OnInit {
       .subscribe(
         lesson => {
           this.lesson = lesson;
+          console.log(this.lesson);
         },
         error => {
           this.alertService.error('Error, Could not retrieve course lessons');
