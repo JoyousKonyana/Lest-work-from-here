@@ -102,7 +102,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Registered equipment with" + ' ' + equipment.EquipmentSerialNumber;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return Ok("Successfully registered new equipment");
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -189,7 +189,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
             try
             {
                 var equipment = _mapper.Map<OnboarderEquipment>(model);
-
+                equipment.EquipmentCheckOutDate = equipment.EquipmentCheckInDate;
 
 
                 _equipmentRepository.Add(equipment);
@@ -204,7 +204,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.UserId = userid;
 
                     _equipmentRepository.Add(equipment);
-                    return Ok("Successfully Assigned equipment");
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -259,12 +259,14 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 var onboarderid = model.OnboarderId;
                 var assignedEquipment = await _equipmentRepository.GetEquipmentByEquipmentOnboarderId(model.OnboarderId, model.EquipmentId);
+             
+
 
 
                 if (assignedEquipment == null) return NotFound($"Sorry We could not find your assigned equipment");
 
                 _mapper.Map(model, assignedEquipment);
-
+                assignedEquipment.EquipmentCheckInDate = model.EquipmentCheckInDate;
                 if (await _equipmentRepository.SaveChangesAsync())
                 {
                     var existingequipmemt = await _equipmentRepository.GetEquipmentByIdAsync(model.EquipmentId);
@@ -272,7 +274,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Assigned equipment with serial number" + ' ' + existingequipmemt.EquipmentSerialNumber + " " + "to onboarder with id " + " " + model.OnboarderId;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return _mapper.Map<AssignedEquipmentViewModel>(assignedEquipment);
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -359,7 +361,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Submited a query for equipment with serial number" + ' ' + existingequipmemt.EquipmentSerialNumber + " " + "Currently assigned to " + " " + model.OnboarderId;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return Ok("Your query was successfully saved");
+                    return Ok();
                 }
             }
             catch (Exception)

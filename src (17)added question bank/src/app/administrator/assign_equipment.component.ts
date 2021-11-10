@@ -87,6 +87,7 @@ private loadAll() {
     this.model3.EquipmentCheckOutDate = this.assignEquipmentForm.get('checkout')?.value;
     this.model3.EquipmentCheckOutCondition = this.assignEquipmentForm.get('condition')?.value;
 
+    // this.model3.EquipmentCheckOutDate = Date.now;
     console.log('Form: ', this.assignEquipmentForm.value);
     console.log('Model3: ', this.model3);
 

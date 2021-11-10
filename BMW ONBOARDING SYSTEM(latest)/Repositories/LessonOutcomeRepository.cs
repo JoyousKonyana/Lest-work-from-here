@@ -62,7 +62,7 @@ namespace BMW_ONBOARDING_SYSTEM.Repositories
             //Lesson lesson1 = _inf370ContextDB.Lesson.Where(cd =>
             //cd.CourseId == lessonOutcomeId).FirstOrDefault();
 
-            IQueryable<LessonOutcome> lessonout = _inf370ContextDB.LessonOutcome.Where(xx => xx.LessonID == lessonID);
+            IQueryable<LessonOutcome> lessonout = _inf370ContextDB.LessonOutcome.Include(x=> x.Lesson).ThenInclude(x =>x.Course).Where(xx => xx.LessonID == lessonID);
 
             return await lessonout.ToArrayAsync();
 

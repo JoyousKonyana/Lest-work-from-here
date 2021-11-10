@@ -27,9 +27,9 @@ namespace BMW_ONBOARDING_SYSTEM.Repositories
             _inf370ContextDB.Remove(entity);
         }
 
-        public Task<QueryStatus[]> GetAllqueriesAsync()
+        public Task<EquipmentQuery[]> GetAllqueriesAsync()
         {
-            IQueryable<QueryStatus> query = _inf370ContextDB.QueryStatus;
+            IQueryable<EquipmentQuery> query = _inf370ContextDB.EquipmentQuery.Include(x=> x.Equipment).Include(x => x.Onboarder).ThenInclude(x=>x.Employee);
 
 
             return query.ToArrayAsync();

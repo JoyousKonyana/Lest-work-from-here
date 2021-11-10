@@ -154,9 +154,11 @@ ReverseMap();
 
             this.CreateMap<EquipmentQuery, ResolveQueryViewModel>().
 ReverseMap();
+            this.CreateMap<EquipmentBrand, EquipmentBrandViewModel>().
+ReverseMap();
+
+
             
-
-
         }
     }
 }

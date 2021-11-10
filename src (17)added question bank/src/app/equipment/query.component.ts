@@ -50,6 +50,8 @@ export class QueryComponent implements OnInit {
       .subscribe(
         query => {
           this.query = query;
+
+          console.log(this.query)
         },
         error => {
           this.alertService.error('Error, Data was unsuccesfully retrieved');
@@ -118,7 +120,7 @@ export class QueryComponent implements OnInit {
           this.alertService.error('Update was unsuccessful, the query status already exists in the system');
         }
         else{
-          this.queryService.updateQueryStatus(this.query[editQuery_StatusInfo].equipmentQueryStatusId , this.model3)
+          this.queryService.updateQueryStatus(this.query[editQuery_StatusInfo].id , this.model3)
             .pipe(first())
             .subscribe(
               data => {

@@ -69,7 +69,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     _equipmentTypepository.Add(auditLog);
                     if (await _equipmentTypepository.SaveChangesAsync())
                     {
-                        return Ok("Successfully created equipment type");
+                        return Ok();
                     }
 
                 }

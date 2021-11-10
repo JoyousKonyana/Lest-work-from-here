@@ -57,24 +57,25 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
         //[Authorize(Roles = Role.Onboarder)]
         [HttpPost]
-        [Route("[action]")]
-        public async Task<ActionResult<EquipmentQueryViewModelcs>> ReportEquipmentQuery([FromBody] EquipmentQueryViewModelcs model)
+        [Route("[action]/{userid}")]
+        public async Task<ActionResult<EquipmentQueryViewModelcs>> ReportEquipmentQuery(int userid,[FromBody] EquipmentQueryViewModelcs model)
         {
             try
             {
                 var query = _mapper.Map<EquipmentQuery>(model);
                 query.QueryStatusId = 1;
+               
                 _queryRepository.Add(query);
 
                 if (await _queryRepository.SaveChangesAsync())
                 {
-                    return Ok("Equipment query successfully sent");
+                    return Ok();
                 }
             }
-            catch (Exception)
+            catch (Exception e )
             {
 
-                BadRequest();
+                BadRequest(e.Message);
             }
             return BadRequest();
         }

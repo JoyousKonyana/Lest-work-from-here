@@ -5,4 +5,6 @@ export class Equipment_Query {
     OnboarderId!: number;
     EquipmentQueryDescription!: string;
     EquipmentQueryDate!: string;
+    EquipmentQueryStatusId!:number;
 }
+

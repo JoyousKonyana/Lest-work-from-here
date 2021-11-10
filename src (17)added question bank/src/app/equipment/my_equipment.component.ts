@@ -72,11 +72,12 @@ private loadAll() {
 
   model: any = {};
 
-  model2: EquipmentQuery = {
+  model2: Equipment_Query = {
     EquipmentId: 0,
     EquipmentQueryDescription: '',
     EquipmentQueryDate: '',
-    OnboarderId: 0
+    OnboarderId: 0,
+    EquipmentQueryStatusId: 0
   }; 
 
   myValue = 0;
@@ -113,7 +114,7 @@ equipid:number;
     this.model2.EquipmentId = data.EquipmentId;
     this.model2.OnboarderId = data.OnboarderId;
     this.model2.EquipmentQueryDate = date;
-
+console.log("equip", this.model2)
     this.yService.create(this.model2)
         .pipe(first())
         .subscribe(

@@ -62,13 +62,13 @@ export class Equipment_BrandComponent implements OnInit {
       this.model = {};
     }
     else if ((Object.keys(this.model).length == 1)) {
-      this.model3.EquipmentBrandName = this.model.EquipmentTypeDescription;
+      this.model3.EquipmentBrandName = this.model.EquipmentBrandName;
 
-      for (let i = 0; i < this.equipment_type.length; i++) {
-        if(this.model3.EquipmentBrandName === this.equipment_type[i].equipmentBrandName){
-          this.alertService.error('Creation was unsuccessful, the equipment type already exists in the system');
-        }
-        else{
+      // for (let i = 0; i < this.equipment_type.length; i++) {
+      //   if(this.model3.EquipmentBrandName === this.equipment_type[i].equipmentBrandName){
+      //     this.alertService.error('Creation was unsuccessful, the equipment type already exists in the system');
+      //   }
+      //   else{
           this.equipmentService.createBrand(this.model3)
             .pipe(first())
             .subscribe(
@@ -81,8 +81,8 @@ export class Equipment_BrandComponent implements OnInit {
               error => {
                 this.alertService.error('Error, Creation was unsuccesful');
               });
-        }
-      }
+      //   }
+      // }
     }
   }
 
@@ -111,10 +111,10 @@ export class Equipment_BrandComponent implements OnInit {
 
         this.model3.EquipmentBrandName  = this.model2.EquipmentBrandName ;
 
-        if(this.model3.EquipmentBrandName === this.equipment_type[i].equipmentBrandName){
-            this.alertService.error('Update was unsuccessful, the equipment type already exists in the system');
-        }
-        else{
+        // if(this.model3.EquipmentBrandName === this.equipment_type[i].equipmentBrandName){
+        //     this.alertService.error('Update was unsuccessful, the equipment type already exists in the system');
+        // }
+        // else{
             this.equipmentService.updateBrand(this.equipment_type[editEquipment_TypeInfo].equipmentBrandId, this.model3)
             .pipe(first())
             .subscribe(
@@ -126,7 +126,7 @@ export class Equipment_BrandComponent implements OnInit {
                 error => {
                 this.alertService.error('Error, Update was unsuccesful');
                 });
-        }
+        // }
     }
   }
 

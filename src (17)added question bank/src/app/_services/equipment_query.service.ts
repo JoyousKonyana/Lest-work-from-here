@@ -20,17 +20,24 @@ export class Equipment_QueryService {
   //  };
 
   // userId: any = localStorage.getItem('user');
-  movies:any = localStorage.getItem("user");
-  moviesi:any     = JSON.parse(this.movies);
-  userId;
-  if(movie){
-   this.userId = this.moviesi['id'];
-  }
+  // movies:any = localStorage.getItem("user");
+  // moviesi:any     = JSON.parse(this.movies);
+  // userId;
+  // if(movie){
+  //  this.userId = this.moviesi['id'];
+  // }
   
 
   httHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-
-  constructor(private http: HttpClient) { }  
+userId;
+  constructor(private http: HttpClient) { 
+    var movies = localStorage.getItem("user");
+    movies     = JSON.parse(movies);
+    if(movies){
+      this.userId = movies['id'];
+      console.log(movies['id']);
+    }
+  }  
 
   getAllEquipment_Query(): Observable<any> {  
     return this.http.get<any>(`${this.url}/GetAllEqipmentQueries`);  
@@ -39,7 +46,7 @@ export class Equipment_QueryService {
       return this.http.get<Equipment_Query>(`${this.url}/GetQuerybyid/` +id);  
     }
   create(x:Equipment_Query) {
-    return this.http.post(`${this.url}/ReportEquipmentQuery`, x);
+    return this.http.post(`${this.url}/ReportEquipmentQuery/`+ this.userId, x);
   }
   
   url2 = 'https://localhost:44319/api/EquipmentQueryStatus'; 
