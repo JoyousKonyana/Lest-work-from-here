@@ -41,7 +41,7 @@ export class Learning_OutcomeComponent implements OnInit {
       .subscribe(
         lesson_outcome_load => {
           this.lesson_outcome_load = lesson_outcome_load;
-          console.log("lesson outcome by id ", this.lesson_outcome_load)
+          console.log("all lesson outcomes ", this.lesson_outcome_load)
         },
         error => {
           this.alertService.error('Error,Could not get lessons outcomes');
@@ -104,6 +104,7 @@ export class Learning_OutcomeComponent implements OnInit {
 
 
   deleteLearning_Outcome(i: number) {
+    alert(i);
     this.learning_outcomeService.delete(i)
       .pipe(first())
       .subscribe(
