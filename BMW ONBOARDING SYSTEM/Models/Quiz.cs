@@ -17,7 +17,7 @@ namespace BMW_ONBOARDING_SYSTEM.Models
         public int LessonOutcomeID { get; set; }
 
         public virtual QuestionBank QuestionBank { get; set; }
-        public int QuestionBankId { get; set; }
+        public int? QuestionBankId { get; set; }
 
         public virtual List<Achievement> Achievements { get; set; }
 

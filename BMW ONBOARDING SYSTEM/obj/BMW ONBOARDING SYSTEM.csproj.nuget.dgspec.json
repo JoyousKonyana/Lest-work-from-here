@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj": {}
+    "F:\\joyous\\Lest-work-from-here\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj": {
+    "F:\\joyous\\Lest-work-from-here\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj",
+        "projectUniqueName": "F:\\joyous\\Lest-work-from-here\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj",
         "projectName": "BMW ONBOARDING SYSTEM",
-        "projectPath": "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj",
-        "packagesPath": "C:\\Users\\konya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\konya\\Downloads\\repo-with-new-code-Kgothatso\\repo-with-new-code-Kgothatso\\BMW ONBOARDING SYSTEM\\obj\\",
+        "projectPath": "F:\\joyous\\Lest-work-from-here\\BMW ONBOARDING SYSTEM\\BMW ONBOARDING SYSTEM.csproj",
+        "packagesPath": "C:\\Users\\Alubani Sibanda\\.nuget\\packages\\",
+        "outputPath": "F:\\joyous\\Lest-work-from-here\\BMW ONBOARDING SYSTEM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\konya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alubani Sibanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,6 +107,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.18, 3.1.18]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -115,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

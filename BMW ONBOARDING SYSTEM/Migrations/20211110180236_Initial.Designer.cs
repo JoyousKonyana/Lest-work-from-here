@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BMW_ONBOARDING_SYSTEM.Migrations
 {
     [DbContext(typeof(INF370DBContext))]
-    [Migration("20211110050829_InitialModel")]
-    partial class InitialModel
+    [Migration("20211110180236_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -979,7 +979,7 @@ namespace BMW_ONBOARDING_SYSTEM.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
-                    b.Property<int>("QuestionBankId")
+                    b.Property<int?>("QuestionBankId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -1313,9 +1313,7 @@ namespace BMW_ONBOARDING_SYSTEM.Migrations
 
                     b.HasOne("BMW_ONBOARDING_SYSTEM.Models.QuestionBank", "QuestionBank")
                         .WithMany("Quizzes")
-                        .HasForeignKey("QuestionBankId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("QuestionBankId");
                 });
 
             modelBuilder.Entity("BMW_ONBOARDING_SYSTEM.Models.QuizQuestion", b =>
