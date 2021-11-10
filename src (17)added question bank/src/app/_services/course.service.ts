@@ -36,7 +36,7 @@ export class CourseService {
   }
 
   getCourseByOnboaderId(id: number): Observable<any> {
-    return this.http.get<any>(`${this.url}/GetCourseById/` + id);
+    return this.http.get<any>('https://localhost:44319/api/Onboarder/GetAllCoursesAssignedToOnboarder/' + id);
   }
 
  

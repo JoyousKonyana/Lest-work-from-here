@@ -112,7 +112,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
             return courseEnrollmentsInDb;
         }
 
-        [Authorize(Role.Admin)]
+        //[Authorize(Role.Admin)]
         [HttpGet("{id}")]
         [Route("[action]/{id}")]
         //getAll courses Assigeng to this a onboarder

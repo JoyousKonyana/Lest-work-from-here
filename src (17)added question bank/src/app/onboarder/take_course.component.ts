@@ -16,19 +16,19 @@ export class Take_CourseComponent implements OnInit {
 
 
   course: any[] = [];
-
+onboarderod;
   constructor(
       private courseService: CourseService,
       private alertService: AlertService,
 
       private router: Router
   ) {
-      // var movies = localStorage.getItem("user");
-      // movies  = JSON.parse(movies);
-      // if(movies){
-      //   this.userId = movies['id'];
-      //   console.log(movies['id']);
-      // }
+      var movies = localStorage.getItem("user");
+      movies  = JSON.parse(movies);
+      if(movies){
+        this.onboarderod = movies['onboarderid'];
+        console.log("onboadre id",movies['onboarderid']);
+      }
   }
 
   ngOnInit() { 
@@ -36,12 +36,13 @@ export class Take_CourseComponent implements OnInit {
   }
 
   private loadAll() {
-    this.courseService.getAllCourse()
+    this.courseService.getCourseByOnboaderId( this.onboarderod)
     .pipe(first())
     .subscribe(
       course => {
         //this.faq = faq;
         this.course = course;
+        console.log("Course",course)
       },
       error => {
         this.alertService.error('Error, Data was unsuccesfully retrieved');
