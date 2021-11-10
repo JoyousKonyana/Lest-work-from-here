@@ -33,6 +33,10 @@ export class CourseService {
     return this.http.get<any>(`${this.url}/GetCourseById/` + id);
   }
 
+  getCourseByOnboaderId(id: number): Observable<any> {
+    return this.http.get<any>(`${this.url}/GetCourseById/` + id);
+  }
+
  
 
   delete(id: number) {

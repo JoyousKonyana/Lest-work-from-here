@@ -64,8 +64,12 @@ export class AppComponent implements OnInit {
     //yanged to
     var movies = localStorage.getItem("user");
     movies     = JSON.parse(movies);
-    this.model = movies['id'];
-    console.log(movies['id']);
+    if(movies){
+      this.model = movies['id'];
+      console.log(movies['id']);
+    }
+   
+   
     //changed to
     this.authenticationService.getUserById(this.model)
       .pipe(first())
