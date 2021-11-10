@@ -14,15 +14,17 @@ export class Learning_OutcomeService {
    //Joyous, please put the link of the API here
    url = 'https://localhost:44319/api/LessonOutcome';  
   //  userId: any = localStorage.getItem('user');
-  movies:any = localStorage.getItem("user");
-  moviesi:any     = JSON.parse(this.movies);
-  userId;
-  if(movie){
-   this.userId = this.moviesi['id'];
-  }
+ 
   
-
-  constructor(private http: HttpClient) { }  
+  userId;
+  constructor(private http: HttpClient) {
+    var movies = localStorage.getItem("user");
+    movies     = JSON.parse(movies);
+    if(movies){
+      this.userId = movies['id'];
+      console.log(movies['id']);
+    }
+   }  
 
   getAllLearning_Outcome(): Observable<Learning_Outcome[]> {  
     return this.http.get<Learning_Outcome[]>(`${this.url}/GetAllLessonOutcomes`);  

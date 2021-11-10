@@ -38,8 +38,9 @@ export class CourseComponent implements OnInit {
     private alertService: AlertService,
     private router: Router,
   ) { }
-
+  
   ngOnInit() {
+    
     this.loadAll();
     this.date = new Date().toISOString().slice(0, 10);
   }
@@ -78,6 +79,7 @@ export class CourseComponent implements OnInit {
             this.model = {};
           },
           error => {
+            console.log("error course creation",error.message)
             this.alertService.error('Error, Creation was unsuccesful');
           });
     }

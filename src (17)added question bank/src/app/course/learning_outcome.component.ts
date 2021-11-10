@@ -41,6 +41,7 @@ export class Learning_OutcomeComponent implements OnInit {
       .subscribe(
         lesson_outcome_load => {
           this.lesson_outcome_load = lesson_outcome_load;
+          console.log("lesson outcome", this.lesson_outcome_load)
         },
         error => {
           this.alertService.error('Error,Could not get lessons outcomes');
@@ -128,7 +129,7 @@ export class Learning_OutcomeComponent implements OnInit {
   updateLearning_Outcome() {
     let editLearning_OutcomeInfo = this.myValue;
 
-    this.model3.LessonOutcomeId = this.lesson_outcome_load[editLearning_OutcomeInfo].lessonOutcomeId;
+    this.model3.LessonOutcomeId = this.lesson_outcome_load[editLearning_OutcomeInfo].lessonOutcomeID;
     this.model3.LessonId = this.id;
     this.model3.LessonOutcomeDescription = this.model2.LessonOutcomeDescription;
     this.model3.LessonOutcomeName = this.model2.LessonOutcomeName;

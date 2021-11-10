@@ -41,9 +41,12 @@ export class OTPComponent implements OnInit {
         // this.model = localStorage.getItem('user');
         var movies = localStorage.getItem("user");
         movies     = JSON.parse(movies);
-        this.model = movies['id'];
-        console.log(movies['id']);
-
+        if(movies){
+            this.model = movies['id'];
+            console.log(movies['id']);
+    
+        }
+     
     }
 
     otpForm = this.formBuilder.group({

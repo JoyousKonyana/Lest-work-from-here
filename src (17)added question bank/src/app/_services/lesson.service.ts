@@ -12,15 +12,17 @@ import { Observable } from 'rxjs';
 export class LessonService {
   url = 'https://localhost:44319/api/Lesson';
  //  userId: any = localStorage.getItem('user');
- movies:any = localStorage.getItem("user");
- moviesi:any     = JSON.parse(this.movies);
- userId;
- if(movie){
-  this.userId = this.moviesi['id'];
- }
- 
 
-  constructor(private http: HttpClient) { }
+ 
+ userId;
+  constructor(private http: HttpClient) {
+    var movies = localStorage.getItem("user");
+    movies     = JSON.parse(movies);
+    if(movies){
+      this.userId = movies['id'];
+      console.log(movies['id']);
+    }
+   }
 
   getAllLessons(): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(`${this.url}/GetAllLessons`);

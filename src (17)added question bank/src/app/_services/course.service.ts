@@ -16,14 +16,16 @@ export class CourseService {
   //Joyous, please put the link of the API here
   url = 'https://localhost:44319/api/Course';
  //  userId: any = localStorage.getItem('user');
- movies:any = localStorage.getItem("user");
- moviesi:any     = JSON.parse(this.movies);
+
  userId;
- if(movie){
-  this.userId = this.moviesi['id'];
- }
- 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    var movies = localStorage.getItem("user");
+    movies     = JSON.parse(movies);
+    if(movies){
+      this.userId = movies['id'];
+      console.log(movies['id']);
+    }
+   }
 
   getAllCourse(): Observable<any> {
     return this.http.get<any>(`${this.url}/GetAllCourses`);
@@ -48,10 +50,14 @@ export class CourseService {
   }
 
   create(course: Course) {
+    var number = this.userId;
+   alert(this.userId);
+   console.log("course", number)
     return this.http.post(`${this.url}/CreateCourse/` + this.userId, course);
   }
 
   assigne(assign: Onboarder_Course_Enrollment) {
+   
     return this.http.post(`${this.url}/AssignCourse/` + this.userId, assign);
   }
 
