@@ -82,13 +82,24 @@ export class EquipmentService {
 
   //Equipment Type
   deleteType(id: number) {
-    return this.http.delete(`${this.url}/DeleteEquipmentType/` + id + '/' + this.userId);
+    return this.http.delete(`${this.url3}/DeleteEquipmentType/` + id + '/' + this.userId);
   }
   updateType(id: number, equipment_type: Equipment_Type) {
     return this.http.put(`${this.url3}/UpdateEquipmentType/` + id + '/' + this.userId, equipment_type);
   }
   createType(equipment_type: Equipment_Type) {
     return this.http.post(`${this.url3}/CreateEquipmentType/` + this.userId, equipment_type);
+  }
+
+  //Equipment Brand
+  deleteBrand(id: number) {
+    return this.http.delete(`${this.url2}/DeleteEquipmentBrand/` + id + '/' + this.userId);
+  }
+  updateBrand(id: number, equipment_type: Equipment_Brand) {
+    return this.http.put(`${this.url2}/UpdateEquipmentBrand/` + id + '/' + this.userId, equipment_type);
+  }
+  createBrand(equipment_type: Equipment_Brand) {
+    return this.http.post(`${this.url2}/CreateEquipmentBrand/` + this.userId, equipment_type);
   }
 
 } 

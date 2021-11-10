@@ -1,7 +1,7 @@
 <div class="AddEmployeeTitleContainer">
     <div class="addEmployeeTitleContainer">
       <div>
-        Manage Equipment Type
+        Manage Equipment Brand
       </div>
       <br />
       <div class="btn btn-primary" (click)="addNewCourseBtn()">
@@ -17,16 +17,16 @@
 
   <div *ngIf="newEquipment_TypeClicked">
     <div class="formWrapper">
-      <h2>Create Equipment Type</h2>
+      <h2>Create Equipment Brand</h2>
       <form>
         <div class="form-group name">
-          <label>Enter Equipment Type Description:</label>
+          <label>Enter Equipment Brand Description:</label>
           <input type="text" 
             class="form-control input" 
             id="name" 
             name="name" 
-            [(ngModel)]="model.EquipmentTypeDescription"
-            placeholder="Laptop">
+            [(ngModel)]="model.EquipmentBrandName"
+            placeholder="HP">
         </div>
         <div class="submitBtnContainer">
           <button type="submit" class="btn btn-success" (click)="addEquipment_Type()">
@@ -54,12 +54,12 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th class="col">Equipment Type Description</th>
+          <th class="col">Equipment Brand Name</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of equipment_type | filter:searchText; let i = index">
-          <td>{{item.equipmentTypeDescription}}</td>
+          <td>{{item.equipmentBrandName}}</td>
           <td>
             <button class="btn btn-primary" (click)="editEquipment_Type(i)">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -70,7 +70,7 @@
                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
               </svg>
             </button>
-            <button class="btn btn-danger" (click)="deleteEquipment_Type(item.equipmentTypeId)">
+            <button class="btn btn-danger" (click)="deleteEquipment_Type(item.equipmentBrandId)">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
                 viewBox="0 0 16 16">
                 <path
@@ -85,17 +85,17 @@
   
   
   <div class="editEmployeeTitleContainer">
-    <div class="">Update Equipment Type</div>
+    <div class="">Update Equipment Brand</div>
   </div>
   <form>
     <div class="form-group name">
-      <label>Enter Equipment Type Description:</label>
+      <label>Enter Equipment Brand Name:</label>
       <input type="text" 
         class="form-control input" 
         id="name" 
         name="name" 
-        [(ngModel)]="model2.EquipmentTypeDescription"
-        placeholder="Laptop">
+        [(ngModel)]="model2.EquipmentBrandName"
+        placeholder="HP">
     </div>
     <button class="btn btn-success" type="submit" (click)="updateEquipment_Type()">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"

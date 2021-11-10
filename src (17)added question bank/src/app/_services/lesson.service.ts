@@ -17,7 +17,7 @@ export class LessonService {
  userId;
   constructor(private http: HttpClient) {
     var movies = localStorage.getItem("user");
-    movies     = JSON.parse(movies);
+    movies  = JSON.parse(movies);
     if(movies){
       this.userId = movies['id'];
       console.log(movies['id']);
