@@ -45,6 +45,7 @@ export class Take_CourseComponent implements OnInit {
     .subscribe(
       course => {
         this.course = course;
+        console.log("onboarder", this.course)
       },
       error => {
         this.alertService.error('Error, Data was unsuccesfully retrieved');

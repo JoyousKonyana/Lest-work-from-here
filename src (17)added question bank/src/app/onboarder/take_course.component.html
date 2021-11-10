@@ -7,13 +7,13 @@
 <div class="card text-center" >
 
   <div class="card-body">
-    <h5 class="card-title">{{course.courseName}}</h5>
-    <p class="card-text">{{course.courseDescription}}.</p>
+    <h5 class="card-title">{{course.course.courseName}}</h5>
+    <p class="card-text">{{course.course.courseDescription}}.</p>
     <a class="btn btn-warning" [routerLink]="['/take_lesson', course.courseID]">Take Course</a>
     <a class="btn btn-info" [routerLink]="['/progress', course.courseID]">Course Progress</a>
   </div>
   <div class="card-footer text-muted">
-    Duration: {{course.courseDueDate}}
+    Duration: {{course.course.courseDueDate}}
   </div>
 </div>
 

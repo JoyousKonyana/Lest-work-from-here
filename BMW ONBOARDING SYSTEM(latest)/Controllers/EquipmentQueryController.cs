@@ -66,13 +66,13 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                 query.QueryStatusId = 1;
 
                 //Eqquer
-                EquipmentQuery newQuery = new EquipmentQuery();
-                newQuery.EquipmentId = model.EquipmentId;
-                newQuery.QueryStatusId = 1;
-                newQuery.OnboarderID = Convert.ToInt32(model.OnboarderId);
-                newQuery.EquipmentQueryDescription = model.EquipmentQueryDescription;
-                newQuery.EquipmentQueryDate = DateTime.Now;
-                _queryRepository.Add(newQuery);
+                //EquipmentQuery newQuery = new EquipmentQuery();
+                //newQuery.EquipmentId = model.EquipmentId;
+                //newQuery.QueryStatusId = 1;
+                //newQuery.OnboarderID = Convert.ToInt32(model.OnboarderId);
+                //newQuery.EquipmentQueryDescription = model.EquipmentQueryDescription;
+                //newQuery.EquipmentQueryDate = DateTime.Now;
+                _queryRepository.Add(query);
 
                 if (await _queryRepository.SaveChangesAsync())
                 {
