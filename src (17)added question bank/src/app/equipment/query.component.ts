@@ -68,11 +68,6 @@ export class QueryComponent implements OnInit {
     else if ((Object.keys(this.model).length == 1)) {
       this.model3.EquipmentQueryDescription = this.model.EquipmentQueryDescription;
 
-      for (let i = 0; i < this.query.length; i++) {
-        if(this.model3.EquipmentQueryDescription === this.query[i].equipmentQueryDescription){
-          this.alertService.error('Create was unsuccessful, the query status already exists in the system');
-        }
-        else{
           this.queryService.createQueryStatus(this.model3)
             .pipe(first())
             .subscribe(
@@ -85,8 +80,7 @@ export class QueryComponent implements OnInit {
               error => {
                 this.alertService.error('Error, Creation was unsuccesful');
               });
-        }
-      }
+        
     }
   }
 
@@ -116,10 +110,6 @@ export class QueryComponent implements OnInit {
       if (i == editQuery_StatusInfo) {
         this.model3.EquipmentQueryDescription = this.model2.EquipmentQueryDescription;
 
-        if(this.model3.EquipmentQueryDescription === this.query[i].equipmentQueryDescription){
-          this.alertService.error('Update was unsuccessful, the query status already exists in the system');
-        }
-        else{
           this.queryService.updateQueryStatus(this.query[editQuery_StatusInfo].id , this.model3)
             .pipe(first())
             .subscribe(
@@ -131,7 +121,7 @@ export class QueryComponent implements OnInit {
               error => {
                 this.alertService.error('Error, Update was unsuccesful');
               });
-        }
+     
       }
     }
   }

@@ -65,12 +65,7 @@ export class Equipment_TypeComponent implements OnInit {
     }
     else if ((Object.keys(this.model).length == 1)) {
       this.model3.EquipmentTypeDescription = this.model.EquipmentTypeDescription;
-
-      // for (let i = 0; i < this.equipment_type.length; i++) {
-      //   if(this.model3.EquipmentTypeDescription === this.equipment_type[i].equipmentTypeDescription){
-      //     this.alertService.error('Creation was unsuccessful, the equipment type already exists in the system');
-      //   }
-      //   else{
+      
           this.equipmentService.createType(this.model3)
             .pipe(first())
             .subscribe(
@@ -81,11 +76,8 @@ export class Equipment_TypeComponent implements OnInit {
                 this.model = {};
               },
               error => {
-                //  console.log(error.message);
                 this.alertService.error('Error, Creation was unsuccesful');
               });
-      //   }
-      // }
     }
   }
 
@@ -114,11 +106,7 @@ export class Equipment_TypeComponent implements OnInit {
       
       this.model3.EquipmentTypeDescription = this.model2.EquipmentTypeDescription;
 
-      // if(this.model3.EquipmentTypeDescription === this.equipment_type[i].equipmentTypeDescription){
-      //     this.alertService.error('Update was unsuccessful, the equipment type already exists in the system');
-      // }
-      // else{
-        this.equipmentService.updateType(this.equipment_type[editEquipment_TypeInfo].equipmentTypeId, this.model3)
+      this.equipmentService.updateType(this.equipment_type[editEquipment_TypeInfo].equipmentTypeId, this.model3)
           .pipe(first())
           .subscribe(
             data => {

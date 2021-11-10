@@ -89,8 +89,6 @@ export class EquipmentComponent implements OnInit {
 
     updateEquipmentClicked = false;
 
-    newReport_QueryClicked = false;
-
   model: any = {};
   model2: any = {};
 
@@ -103,33 +101,6 @@ export class EquipmentComponent implements OnInit {
     EquipmentSerialNumber: '1',
     WarrantyId: 1
   };
-
-  testData(){
-    this.equipment.push(
-      {
-        equipmentId: 1, 
-        equipmentTypeId: 1, 
-        equipmentTradeInStatusId: 1, 
-        warrantyStartDate: '',
-        warrantyEndDate: '',
-        warrantyStatus: '',
-        equipmentTradeInDeadline: '', 
-        equipmentBrandId: 1,
-        equipmentSerialNumber : 54651,
-      },
-      {
-        equipmentId: 2, 
-        equipmentTypeId: 1, 
-        equipmentTradeInStatusId: 1, 
-        warrantyStartDate: '',
-        warrantyEndDate: '',
-        warrantyStatus: '',
-        equipmentTradeInDeadline: '', 
-        equipmentBrandId: 1,
-        equipmentSerialNumber : 541,
-      }
-    );
-  }
 
 
   addEquipment() {
@@ -181,14 +152,6 @@ export class EquipmentComponent implements OnInit {
     this.myValue = editEquipmentInfo;
   }
 
-  editReport_Query(editReport_QueryInfo: number) {
-    this.newReport_QueryClicked = !this.newReport_QueryClicked;
-
-    // this.model2.status = this.equipment[editReport_QueryInfo].equipment_query_status;
-    // this.model2.description = this.equipment[editReport_QueryInfo].equipment_query_description;
-    this.myValue = editReport_QueryInfo;
-  }
-
   updateEquipment() {
     let editEquipmentInfo = this.myValue;
 
@@ -224,35 +187,8 @@ export class EquipmentComponent implements OnInit {
     EquipmentQueryStatusId: 0
   }
 
-  updateReport_Query() {
-    let editReport_QueryInfo = this.myValue;
-    for(let i = 0; i < this.equipment.length; i++) {
-      if(i == editReport_QueryInfo) {
-        this.model4.EquipmentId = this.equipment[editReport_QueryInfo].equipmentId;
-        
-        this.equipmentService.ReportEquipmentQuery(this.model4)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Update Query was successful', true);
-                    this.loadAll();
-                    this.model2 = {};
-                },
-                error => {
-                    this.alertService.error('Error, Update was unsuccesful');
-                });
-      }
-    }
-
-    this.newReport_QueryClicked = !this.newReport_QueryClicked;
-  }
-
   addNewEquipmentBtn() {
         this.newEquipmentClicked = !this.newEquipmentClicked;
-  }
-
-  CloseReport_QueryBtn(){
-      this.newReport_QueryClicked = !this.newReport_QueryClicked;
   }
   
 }
