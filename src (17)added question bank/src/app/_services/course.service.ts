@@ -18,7 +18,11 @@ export class CourseService {
  //  userId: any = localStorage.getItem('user');
  movies:any = localStorage.getItem("user");
  moviesi:any     = JSON.parse(this.movies);
- userId = this.moviesi['id'];
+ userId;
+ if(movie){
+  this.userId = this.moviesi['id'];
+ }
+ 
   constructor(private http: HttpClient) { }
 
   getAllCourse(): Observable<any> {

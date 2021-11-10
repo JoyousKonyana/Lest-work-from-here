@@ -16,9 +16,13 @@ export class Achievment_TypeService {
    url2 = 'https://localhost:44319/api/Badge';  
 
   //  userId: any = localStorage.getItem('user');
-   movies:any = localStorage.getItem("user");
-   moviesi:any     = JSON.parse(this.movies);
-   userId = this.moviesi['id'];
+  movies:any = localStorage.getItem("user");
+  moviesi:any     = JSON.parse(this.movies);
+  userId;
+  if(movie){
+   this.userId = this.moviesi['id'];
+  }
+  
   //  console.log(movies['id']);
 
   //  header= new HttpHeaders(){

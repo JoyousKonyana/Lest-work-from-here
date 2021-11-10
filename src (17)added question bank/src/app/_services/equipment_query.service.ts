@@ -20,9 +20,13 @@ export class Equipment_QueryService {
   //  };
 
   // userId: any = localStorage.getItem('user');
-  movies = localStorage.getItem("user");
-  moviese     = JSON.parse(this.movies);
-  userId = this.moviese['id'];
+  movies:any = localStorage.getItem("user");
+  moviesi:any     = JSON.parse(this.movies);
+  userId;
+  if(movie){
+   this.userId = this.moviesi['id'];
+  }
+  
 
   httHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 

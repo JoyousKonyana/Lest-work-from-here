@@ -15,7 +15,11 @@ export class OnboarderService {
    url = 'https://localhost:44319/api/Onboarder';  
    movies:any = localStorage.getItem("user");
    moviesi:any     = JSON.parse(this.movies);
-   userId = this.moviesi['onboarderId'];
+   userId;
+   if(movie){
+    this.userId = this.moviesi['id'];
+   }
+   
   constructor(private http: HttpClient) { }  
 
   getAllOnboarder(): Observable<any[]> {  

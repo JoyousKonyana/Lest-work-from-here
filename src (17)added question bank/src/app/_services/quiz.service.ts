@@ -16,8 +16,12 @@ export class QuizService {
 
   constructor(private http: HttpClient) { } 
   movies:any = localStorage.getItem("user");
-  moviesi:any     = JSON.parse(this.movies);
-  userId = this.moviesi['id'];
+ moviesi:any     = JSON.parse(this.movies);
+ userId;
+ if(movie){
+  this.userId = this.moviesi['id'];
+ }
+ 
 
   //Quiz
   urlQuiz = 'https://localhost:44319/api/Quiz';
