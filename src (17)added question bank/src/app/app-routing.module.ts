@@ -19,6 +19,7 @@ import {
 import {
   CourseComponent,
   Assign_CourseComponent,
+  Archieve_ContentComponent,
   Learning_OutcomeComponent,
   Set_QuizComponent,
   Learning_ContentComponent,
@@ -294,6 +295,10 @@ const routes: Routes = [
     path: 'ss_course',
     component: SS_CourseComponent,
     //canActivate: [AuthGuard], data: { roles: [Role.Admin] }
+  },
+  {
+    path: 'manage_archieve',
+    component: Archieve_ContentComponent
   },
   {
     path: 'course',

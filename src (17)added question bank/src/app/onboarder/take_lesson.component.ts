@@ -51,16 +51,4 @@ export class Take_LessonComponent implements OnInit {
     );
   }
 
-    //newUser_RoleClicked = false;
-
-  //Remove this bad boy
-  testData() {
-    this.lesson.push(
-      { lessonId: 1, courseId: 1, lessonCompletionStatusId: 1, lessonDescription: '213', lessonName: '3212'},
-      { lessonId: 2, courseId: 1, lessonCompletionStatusId: 1, lessonDescription: '21', lessonName: 'as'},
-      { lessonId: 3, courseId: 2, lessonCompletionStatusId: 1, lessonDescription: '21', lessonName: ''},
-      { lessonId: 4, courseId: 2, lessonCompletionStatusId: 1, lessonDescription: '', lessonName: ''},
-    );
-  }
-
 }

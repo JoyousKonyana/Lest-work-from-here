@@ -27,6 +27,37 @@ export class User_RoleComponent implements OnInit {
        this.loadAll();
    }
 
+   Array: string[] = [];
+   Array2: string[] = [];
+    string: string;
+    myString = this.Array.toString();
+    isfrmChecked:any;
+
+    componentMethodName(event: any, isChecked: boolean) 
+    {
+      if (event.target.checked) {
+        this.Array.push(event.target.value)
+      }
+      else {
+        let index = this.Array.indexOf(event.target.value);
+        this.Array.splice(index, 1);
+      }
+
+      this.model.UserRoleDescription = this.Array.toString();
+    }
+    componentMethodName2(event: any, isChecked: boolean) 
+    {
+      if (event.target.checked) {
+        this.Array2.push(event.target.value)
+      }
+      else {
+        let index = this.Array2.indexOf(event.target.value);
+        this.Array2.splice(index, 1);
+      }
+
+      this.model2.UserRoleDescription = this.Array2.toString();
+    }
+
   loadAll() {
      this.employeeService.getAllUser_Role()
      .pipe(first())
@@ -51,16 +82,6 @@ export class User_RoleComponent implements OnInit {
     UserRoleName!: ''
   }
 
-  //Remove this bad boy
-   testData() {
-     this.user_role.push(
-       { userRoleId: 1, userRoleDescription: '321', userRoleName: ''},
-       { userRoleId: 1, userRoleDescription: '321', userRoleName: ''},
-       { userRoleId: 1, userRoleDescription: '321', userRoleName: ''},
-       { userRoleId: 1, userRoleDescription: '321', userRoleName: ''},
-     );
-   }
-
    addUser_Role() { 
      if(Object.keys(this.model).length < 2)
      {
@@ -81,6 +102,7 @@ export class User_RoleComponent implements OnInit {
                      this.loadAll();
                      this.newUser_RoleClicked = !this.newUser_RoleClicked;
                      this.model = {};
+                     this.Array.length = 0
                  },
                  error => {
                      this.alertService.error('Error, Creation was unsuccesful');
@@ -127,6 +149,7 @@ export class User_RoleComponent implements OnInit {
                      this.alertService.success('Update was successful', true);
                      this.loadAll();
                      this.model2 = {};
+                     this.Array2.length = 0
                  },
                  error => {
                      this.alertService.error('Error, Update was unsuccesful');

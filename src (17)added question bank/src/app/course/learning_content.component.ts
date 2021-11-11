@@ -13,6 +13,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 
 export class Learning_ContentComponent implements OnInit {
     lesson_content: any;
+    content: any;
 
   searchText = '';
   id!: any;
@@ -57,14 +58,16 @@ export class Learning_ContentComponent implements OnInit {
         this.lesson_contentService.getLesson_ContentByLessonoutcomeId(this.id)
             .pipe(first())
             .subscribe(
-                lesson_content => {
-                this.lesson_content = lesson_content;
+                content => {
+                this.content = content;
                 console.log(this.lesson_content)
                 },
                 error => {
                 this.alertService.error('Error, Could not retrieve course lessons');
                 }
             );
+
+            this.lesson_content = this.content.filter((obj) => { return obj.departmentId == 1 } )
     }
 
   addLesson_Content() {
@@ -110,41 +113,61 @@ export class Learning_ContentComponent implements OnInit {
         });
   }
 
-  editLesson_Content(editLesson_ContentInfo) {
-   
-    console.log("lesson content to edit",editLesson_ContentInfo )
+  editLesson_Content(editLesson_ContentInfo, index) {
+
     this.model2.LessonContent1 = editLesson_ContentInfo.lessonContent1;
     
     this.model2.LessonContentDescription = editLesson_ContentInfo.lessonContentDescription;
-    this.myValue = editLesson_ContentInfo;
+    this.myValue = index;
   }
 
   updateLesson_Content() {
     let editLesson_ContentInfo = this.myValue;
-console.log("my value",this.myValue['lessonConentId'])
+    //console.log("my value",this.myValue['lessonConentId'])
+
     this.model3.LessonOutcomeId = this.id;
-
-    this.model3.LessonContentDescription = this.model2.LessonContentDescription;
-    this.model3.LessonContent1 = this.model2.LessonContent1;
-
-    // for (let i = 0; i < this.lesson_content.length; i++) {
-    //   if (i == editLesson_ContentInfo) {
-        this.lesson_contentService.update(this.myValue['lessonConentId'], this.model3)
+    this.model3.LessonConentId = this.lesson_content[editLesson_ContentInfo].lessonContentId;
+    this.model3.ArchiveStatusId = 2;
+    this.model3.LessonContentDescription = this.lesson_content[editLesson_ContentInfo].lessonContentDescription;
+    this.model3.LessonContent1 = this.lesson_content[editLesson_ContentInfo].lessonContent1;
+    
+        this.lesson_contentService.update(this.model3.LessonConentId, this.model3)
           .pipe(first())
           .subscribe(
             data => {
-              this.alertService.success('Update was successful', true);
+              this.alertService.success('Lesson Content was successfully Updated', true);
               this.loadAll();
               window.document.location.reload();
             },
             error => {
             
-              this.alertService.error('Error, Update was unsuccesful');
+              this.alertService.error('Error, Lesson Content was unsuccesfully Updated');
               this.loadAll();
             });
-    //   }
-    // }
+  }
 
+  archieveContent(i: number) {
+    let editLesson_ContentInfo = i;
+
+    this.model3.LessonOutcomeId = this.lesson_content[editLesson_ContentInfo].lessonOutcomeId;
+    this.model3.LessonConentId = this.lesson_content[editLesson_ContentInfo].lessonContentId;
+    this.model3.ArchiveStatusId = 2;
+    this.model3.LessonContentDescription = this.lesson_content[editLesson_ContentInfo].lessonContentDescription;
+    this.model3.LessonContent1 = this.lesson_content[editLesson_ContentInfo].lessonContent1;
+    
+        this.lesson_contentService.update(this.model3.LessonConentId, this.model3)
+          .pipe(first())
+          .subscribe(
+            data => {
+              this.alertService.success('Lesson Content was successfully Archieved', true);
+              this.loadAll();
+              window.document.location.reload();
+            },
+            error => {
+            
+              this.alertService.error('Error, Lesson Content was unsuccesfully Archieved');
+              this.loadAll();
+            });
   }
 
   addNewLesson_ContentBtn() {

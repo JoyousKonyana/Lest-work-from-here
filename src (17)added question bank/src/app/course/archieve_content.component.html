@@ -1,0 +1,38 @@
+
+<h1>
+  Manage Archieved Lesson Content
+</h1>
+  
+  <hr>
+  
+  <!-- Search Field -->
+  <div class="search-hero container">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching for a course by id or name or description">
+  </div>
+  
+  <!-- List Content table -->
+  <div class="tableWrapper">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-4">Content</th>
+          <th class="col-6">Description</th>
+          <th class="col-2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lesson_content | filter:searchText; let i = index">
+          <td>{{item.lessonContent1}}</td>
+          <td>{{item.lessonContentDescription}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="unarchieveLesson_Content(i)">
+              UnArchieve Lesson Content
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
