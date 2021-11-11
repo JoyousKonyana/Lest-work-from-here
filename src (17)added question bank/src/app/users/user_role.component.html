@@ -9,9 +9,6 @@
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
     </svg>
   </div>
-  <br/>
-  <div class="btn btn-link" (click)="testData()">Populate Data</div>
-  <p></p>
 </div>
 <div class="addEmployeeBtnContainer">
 </div>
@@ -35,8 +32,21 @@
            id="description"
            name="description"
            [(ngModel)]="model.UserRoleDescription"
-           placeholder="Description">
+           placeholder="Access Description">
+           <small>You can manually type you user role access or check it:</small><br/>
+              <input name="checkboxName" id="checkbox1" type="checkbox" value="Administrator" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName($event,isfrmChecked);">Administrator
+              <br/>
+              <input name="checkboxName" id="checkbox2" type="checkbox" value="Users" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName($event,isfrmChecked);">Users
+              <br/>
+              <input name="checkboxName" id="checkbox1" type="checkbox" value="Course" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName($event,isfrmChecked);">Course
+              <br/>
+              <input name="checkboxName" id="checkbox1" type="checkbox" value="Onboarder" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName($event,isfrmChecked);">Onboarder
+              <br/>
+              <input name="checkboxName" id="checkbox1" type="checkbox" value="Report" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName($event,isfrmChecked);">Report
+              <br/>
+              <input name="checkboxName" id="checkbox1" type="checkbox" value="Equipment" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName($event,isfrmChecked);">Equipment
   </div>
+
   <div class="submitBtnContainer">
     <button type="submit" class="btn btn-success" (click)="addUser_Role()">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -54,15 +64,13 @@
 <table class="table table-striped">
 <thead>
   <tr>
-    <th class="col-1">ID</th>
-    <th class="col-3">Name</th>
-    <th class="col-4">Description</th>
+    <th class="col-4">Name</th>
+    <th class="col-6">Description</th>
     <th class="col-2">Action</th>
   </tr>
 </thead>
 <tbody>
   <tr *ngFor="let user_role of user_role; let i = index">
-    <td>{{user_role.userRoleId}}</td>
     <td>{{user_role.userRoleName}}</td>
     <td>{{user_role.userRoleDescription}}</td>
     <td>
@@ -98,13 +106,25 @@
          placeholder="Name">
 </div>
 
- <div class="form-group position">
+<div class="form-group position">
   <input type="text"
-         class="form-control"
+         class="form-control positionInput"
          id="description"
          name="description"
-         [(ngModel)]="model2.UserRoleAccessDescription"
-         placeholder="Description">
+         [(ngModel)]="model2.UserRoleDescription"
+         placeholder="Access Description">
+         <small>You can manually type you user role access or check it:</small><br/>
+            <input name="checkboxName" id="checkbox1" type="checkbox" value="Administrator" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName2($event,isfrmChecked);">Administrator
+            <br/>
+            <input name="checkboxName" id="checkbox2" type="checkbox" value="Users" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName2($event,isfrmChecked);">Users
+            <br/>
+            <input name="checkboxName" id="checkbox1" type="checkbox" value="Course" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName2($event,isfrmChecked);">Course
+            <br/>
+            <input name="checkboxName" id="checkbox1" type="checkbox" value="Onboarder" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName2($event,isfrmChecked);">Onboarder
+            <br/>
+            <input name="checkboxName" id="checkbox1" type="checkbox" value="Report" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName2($event,isfrmChecked);">Report
+            <br/>
+            <input name="checkboxName" id="checkbox1" type="checkbox" value="Equipment" (change)="$event.target? (isfrmChecked = true) : isfrmChecked = false; componentMethodName2($event,isfrmChecked);">Equipment
 </div>
 
 <button class="btn btn-success" type="submit" (click)="updateUser_Role()">

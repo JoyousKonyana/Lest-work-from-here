@@ -44,7 +44,7 @@
 
     <div class="form-group name">
       <label>Enter First Name:</label>
-      <input type="text" class="form-control input" id="first_name" name="first_name" placeholder="Ashley"
+      <input type="text" class="form-control input" id="first_name" name="first_name" placeholder="First Name"
         [(ngModel)]="model.FirstName" formControlName="FirstName"
         [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" />
       <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
@@ -54,13 +54,13 @@
 
     <div class="form-group position">
       <label>Enter Middle Name:</label>
-      <input type="text" class="form-control positionInput" id="middle_name" name="middle_name" placeholder="Twain"
+      <input type="text" class="form-control positionInput" id="middle_name" name="middle_name" placeholder="Middle Name"
         formControlName="middleName">
     </div>
 
     <div class="form-group name">
       <label>Enter Last Name:</label>
-      <input type="text" class="form-control input" id="last_name" name="last_name" placeholder="Smith"
+      <input type="text" class="form-control input" id="last_name" name="last_name" placeholder="Last Name"
         formControlName="LastName" [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
       <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
         <div *ngIf="f.LastName.errors.required">Last Name is required</div>
@@ -69,7 +69,7 @@
 
     <div class="form-group name">
       <label>Enter Email:</label>
-      <input type="email" class="form-control input" id="email" name="email" placeholder="John@bme.co.za"
+      <input type="email" class="form-control input" id="email" name="email" placeholder="Email Address"
         [ngClass]="{ 'is-invalid': submitted && f.email.errors }" formControlName="email">
       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
         <div *ngIf="f.email.errors.required">Email is required</div>
@@ -80,7 +80,7 @@
     <div class="form-group position">
       <label>Enter ID Number:</label>
       <input type="number" class="form-control positionInput" id="id_number" name="id_number"
-        placeholder="9012305842939" formControlName="idNumber">
+        placeholder="ID Number" formControlName="idNumber">
     </div>
 
     <h4>Select Gender</h4>
@@ -95,14 +95,14 @@
 
     <div class="form-group name">
       <label>Enter Contact Number:</label>
-      <input type="number" class="form-control input" id="contact_number" name="contact_number" placeholder="0606228660"
+      <input type="number" class="form-control input" id="contact_number" name="contact_number" placeholder="Contact Number"
         formControlName="contactNumber">
     </div>
 
     <div class="form-group name">
       <label>Enter Job Title:</label>
       <input type="text" class="form-control input" id="employeeJobTitle" name="employeeJobTitle"
-        placeholder="Intern Software Developer" formControlName="employeeJobTitle">
+        placeholder="Job Description" formControlName="employeeJobTitle">
     </div>
 
     <h4>Select UserRole</h4>
@@ -174,14 +174,14 @@
 
     <div class="form-group position">
       <label>Enter Street Number:</label>
-      <input type="text" class="form-control positionInput" id="street_number" name="street_number" placeholder="123"
+      <input type="text" class="form-control positionInput" id="street_number" name="street_number" placeholder="Street Number"
         formControlName="streetnumber">
     </div>
 
     <div class="form-group position">
       <label>Enter Street Name:</label>
       <input type="text" class="form-control positionInput" id="street_name" name="street_name"
-        placeholder="Medow Close Road" formControlName="streetname">
+        placeholder="Street Name" formControlName="streetname">
     </div>
 
     <div class="submitBtnContainer">

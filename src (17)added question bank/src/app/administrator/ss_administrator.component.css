@@ -10,6 +10,16 @@
   .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
   }
+
+  input {
+    border: 2px solid currentcolor;
+  }
+  input:invalid {
+    border: 2px dashed red;
+  }
+  input:invalid:focus {
+    background-image: linear-gradient(pink, lightgreen);
+  }
   
   #myInput {
     box-sizing: border-box;
