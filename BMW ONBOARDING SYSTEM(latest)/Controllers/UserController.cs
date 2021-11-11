@@ -522,7 +522,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Assigned userole to user with  " + ' ' + existinguser.Username + ' ' + "from" + ' ' + existinguser.UserRole.UserRoleName + ' ' + "to" + ' ' + userrole.UserRoleName;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return _mapper.Map<CreateUserViewModel>(existinguser);
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -555,7 +555,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                 {
                     //Employee employee = await _employeeRepository.GetEmployeeByID(existinguser.UserId);
                     sendEmail(existinguser, randomPassword);
-                    return Ok("Check your email for a new password");
+                    return Ok();
                 }
             }
             catch (Exception)

@@ -102,7 +102,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Updated Course to " + ' ' + existingEquipmentType.EquipmentTypeDescription;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return _mapper.Map<AddEquipmentypeDto>(existingEquipmentType);
+                    return Ok();
                 }
             }
             catch (Exception)

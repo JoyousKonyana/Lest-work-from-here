@@ -102,7 +102,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
 
-                    return Created($"/api/LessonOutcome{lessonOutcome.LessonOutcomeName}", _mapper.Map<LessonOutcomeViewModel>(lessonOutcome));
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -133,7 +133,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
 
-                    return _mapper.Map<LessonOutcomeViewModel>(existingLessonOutcome);
+                    return Ok();
                 }
             }
             catch (Exception)

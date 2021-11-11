@@ -392,7 +392,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                                 if (!await _employeeRepository.SaveChangesAsync())
                                 {
-                                    return BadRequest("Sorry we could not register All the users check the List of users to see where the system failed");
+                                    return BadRequest();
                                 }
 
                             }
@@ -420,7 +420,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (result == null) return NotFound();
 
-                return _mapper.Map<EmployeeViewModel[]>(result);
+                return Ok();
             }
             catch (Exception)
             {

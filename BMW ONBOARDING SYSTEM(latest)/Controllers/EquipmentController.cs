@@ -314,7 +314,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
                 }
-                return Ok("Successfully checked equipment");
+                return Ok();
 
 
             }

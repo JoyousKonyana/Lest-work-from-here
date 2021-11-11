@@ -104,7 +104,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Created userole with name  " + ' ' + userRole.UserRoleName;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return Created($"/api/UserRole{userRole.UserRoleName}", _mapper.Map<UserRoleViewModel>(userRole));
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -134,7 +134,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Updated userole with description  " + existinguserRole.UserRoleName;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return _mapper.Map<UserRoleViewModel>(existinguserRole);
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -168,7 +168,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     //auditLog.AuditLogDescription = "Assigned userole to user  " + existinguser.Username+ ' '+ "from" + existinguser.UserRole.UserRoleName + ' '+ "to" + userRole.UserRoleName ;
                     //auditLog.AuditLogDatestamp = DateTime.Now;
                     //auditLog.UserId = userid;
-                    return Ok("SuccessFully assigned user Role");
+                    return Ok();
                 }
             }
             catch (Exception)

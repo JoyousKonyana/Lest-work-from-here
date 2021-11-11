@@ -40,7 +40,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _provinceRepository.SaveChangesAsync())
                 {
-                    return Ok("Province successfully Created");
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -83,7 +83,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _provinceRepository.SaveChangesAsync())
                 {
-                    return _mapper.Map<ProvinceViewModel>(existingProvice);
+                    return Ok();
                 }
             }
             catch (Exception)

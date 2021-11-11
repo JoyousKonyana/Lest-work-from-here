@@ -29,7 +29,7 @@ namespace BMW_ONBOARDING_SYSTEM.Repositories
 
         public Task<EquipmentQuery[]> GetAllqueriesAsync()
         {
-            IQueryable<EquipmentQuery> query = _inf370ContextDB.EquipmentQuery.Include(x=> x.Equipment).ThenInclude(x=>x.EquipmentBrand).Include(x => x.Equipment).ThenInclude(x => x.EquipmentType).Include(x => x.Onboarder).ThenInclude(x=>x.Employee);
+            IQueryable<EquipmentQuery> query = _inf370ContextDB.EquipmentQuery.Include(x => x.QueryStatus).Include(x => x.Equipment).ThenInclude(x => x.EquipmentType);
 
 
             return query.ToArrayAsync();

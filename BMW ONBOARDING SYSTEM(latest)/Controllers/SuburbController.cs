@@ -43,7 +43,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
             }
         }
 
-        [Authorize(Roles = Role.Admin)]
+        //[Authorize(Roles = Role.Admin)]
         [HttpPost]
         [Route("[action]")]
         public async Task<ActionResult<SuburbViewModel>> CreateSuburb([FromBody] SuburbViewModel model)
@@ -56,7 +56,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _suburbRepository.SaveChangesAsync())
                 {
-                    return Ok("Suburb Successfully created");
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -82,7 +82,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _suburbRepository.SaveChangesAsync())
                 {
-                    return _mapper.Map<SuburbViewModel>(existingSuburb);
+                    return Ok();
                 }
             }
             catch (Exception)

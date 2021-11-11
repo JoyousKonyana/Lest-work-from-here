@@ -100,7 +100,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Archived lesson content " + ' ' + lessonContent.LessonContentDescription; ;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return Ok("Lesson content successfully archived");
+                    return Ok();
                 }
             }
             catch (Exception)

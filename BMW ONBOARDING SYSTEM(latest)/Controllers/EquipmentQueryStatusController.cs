@@ -96,7 +96,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Updated Course to " + ' ' + updatedQueryStatusModel.EquipmentQueryDescription;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return _mapper.Map<QueryStatusViewModel>(existingQuerystatus);
+                    return Ok();
                 }
             }
             catch (Exception)

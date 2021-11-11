@@ -55,7 +55,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _countryRepository.SaveChangesAsync())
                 {
-                    return Ok("Country Successfully created");
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -81,7 +81,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _countryRepository.SaveChangesAsync())
                 {
-                    return _mapper.Map<CountryViewModel>(existingCountry);
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -109,7 +109,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _countryRepository.SaveChangesAsync())
                 {
-                    return Ok("Country Successfully deleted");
+                    return Ok();
                 }
             }
             catch (Exception)

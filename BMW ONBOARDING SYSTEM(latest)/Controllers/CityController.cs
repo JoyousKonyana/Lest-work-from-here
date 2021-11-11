@@ -41,7 +41,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (await _cityRepository.SaveChangesAsync())
                 {
-                    return Ok("City Successfully created");
+                    return Ok();
                 }
             }
             catch (Exception)

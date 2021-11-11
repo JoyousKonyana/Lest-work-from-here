@@ -121,7 +121,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Updated lesson with name " + ' ' + existingLesson.LessonName;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return _mapper.Map<CourseViewModel>(existingLesson);
+                    return Ok();
                 }
             }
             catch (Exception)

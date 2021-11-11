@@ -146,7 +146,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                 auditLog.AuditLogDatestamp = DateTime.Now;
                 auditLog.UserId = userid;
 
-                return Ok("Onboarder Course Enrollment successfull");
+                return Ok();
             }
             catch (Exception)
             {
@@ -240,7 +240,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Updated Course to " + ' ' + updatedCourseModel.CourseName;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = id;
-                    return _mapper.Map<CourseViewModel>(existingCourse);
+                    return Ok();
                 }
             }
             catch (Exception)

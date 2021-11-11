@@ -107,7 +107,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Resolved query number" + ' ' + model.EquipmentQueryId;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return Ok("Query Successfully Resolved");
+                    return Ok();
                 }
             }
             catch (Exception)
@@ -207,7 +207,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
                     auditLog.AuditLogDescription = "Created Query status with description" + ' ' + query.EquipmentQueryDescription;
                     auditLog.AuditLogDatestamp = DateTime.Now;
                     auditLog.UserId = userid;
-                    return Ok("Query Status Successfully created");
+                    return Ok();
                 }
             }
             catch (Exception)
