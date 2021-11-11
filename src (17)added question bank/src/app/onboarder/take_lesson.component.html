@@ -1,18 +1,11 @@
-<!-- <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a>Course</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Lesson</li>
-  </ol>
-</nav> -->
-
 
 <div class="page-title" *ngIf="lesson.length >0">
   {{lesson[0].course.courseName}} ▶   {{lesson[0].lessonName}} ▶ Lesson 
 </div>
-
 <div class="page-title" *ngIf="lesson.length ==0">
  This Lesson has no Lesson outcomes Add Lesson outcomes
 </div> 
+
 <h1>Course Center - Lesson</h1>
 
 <div *ngFor="let item of lesson; let i = index">

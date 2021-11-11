@@ -21,14 +21,13 @@ export class CheckequipComponent implements OnInit {
    },  public dialogRef: MatDialogRef<CheckequipComponent>) { }
 otherdata:any;
   ngOnInit(): void {
-this.otherdata = this.data;
+    this.otherdata = this.data;
   }
   
   CheckequipmentForm = this.form.group({
     checkoutCondition: new FormControl('', Validators.required),
-  
-  
   })
+  
 formdata!:string;
   submit(){
 this.formdata =this.CheckequipmentForm.get('checkoutCondition')?.value;

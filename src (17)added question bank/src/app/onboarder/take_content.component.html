@@ -1,13 +1,11 @@
-<nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a>Course</a></li>
-        <li class="breadcrumb-item"><a>Lesson</a></li>
-        <li class="breadcrumb-item"><a>Lesson Outcome</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Lesson Content</li>
-      </ol>
-    </nav>
+<div class="page-title" *ngIf="lesson_content.length > 0">
+      {{lesson_content[0].lesson_outcome.lesson.course.courseName}} ▶    {{lesson_content[0].lesson_outcome.lesson.lessonName}} ▶  {{lesson_content[0].lesson_outcome.lessonOutcomeName}} ▶  Lesson Content
+    </div>
+    <div class="page-title" *ngIf="lesson_content.length == 0">
+     This Lesson Content has no material related to it, 
+    </div>
 
-<h1>Lesson Content</h1>
+<h1>Course Center - Lesson Content</h1>
 
 <div *ngFor="let content of content; let i = index">
       <div>
