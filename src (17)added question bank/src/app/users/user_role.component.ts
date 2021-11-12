@@ -55,7 +55,7 @@ export class User_RoleComponent implements OnInit {
         this.Array2.splice(index, 1);
       }
 
-      this.model2.UserRoleDescription = this.Array2.toString();
+      this.model3.UserRoleDescription = this.Array2.toString();
     }
 
   loadAll() {
@@ -103,6 +103,7 @@ export class User_RoleComponent implements OnInit {
                      this.newUser_RoleClicked = !this.newUser_RoleClicked;
                      this.model = {};
                      this.Array.length = 0
+                     window.document.location.reload();
                  },
                  error => {
                      this.alertService.error('Error, Creation was unsuccesful');
@@ -118,6 +119,7 @@ export class User_RoleComponent implements OnInit {
                  data => {
                      this.alertService.success('Deletion was successful', true);
                      this.loadAll();
+                     window.document.location.reload();
                  },
                  error => {
                      this.alertService.error('Error, Deletion was unsuccesful');
@@ -139,7 +141,7 @@ export class User_RoleComponent implements OnInit {
        if(i == editUsser_RoleInfo) 
        {
           this.model3.UserRoleId = this.user_role[editUsser_RoleInfo].userRoleId;
-          this.model3.UserRoleDescription = this.model2.UserRoleAccessDescription;
+          // this.model3.UserRoleDescription = this.model2.UserRoleAccessDescription;
           this.model3.UserRoleName = this.model2.UserRoleName;
 
          this.user_roleService.update(this.model3.UserRoleId, this.model3)
@@ -150,6 +152,7 @@ export class User_RoleComponent implements OnInit {
                      this.loadAll();
                      this.model2 = {};
                      this.Array2.length = 0
+                    //  window.document.location.reload();
                  },
                  error => {
                      this.alertService.error('Error, Update was unsuccesful');

@@ -23,7 +23,7 @@ export class Archieve_ContentComponent implements OnInit {
   model2: any = {};
 
   model3: Lesson_Content = {
-      LessonConentId: 0,
+    lessonConentId: 0,
       LessonContenetTypeId: 1,
       LessonOutcomeId: 0,
       ArchiveStatusId: 1,
@@ -66,12 +66,12 @@ export class Archieve_ContentComponent implements OnInit {
     let editLesson_ContentInfo = i;
 
     this.model3.LessonOutcomeId = this.lesson_content[editLesson_ContentInfo].lessonOutcomeId;
-    this.model3.LessonConentId = this.lesson_content[editLesson_ContentInfo].lessonContentId;
+    this.model3.lessonConentId = this.lesson_content[editLesson_ContentInfo].lessonContentId;
     this.model3.ArchiveStatusId = 1;
     this.model3.LessonContentDescription = this.lesson_content[editLesson_ContentInfo].lessonContentDescription;
     this.model3.LessonContent1 = this.lesson_content[editLesson_ContentInfo].lessonContent1;
     
-        this.lesson_contentService.update(this.model3.LessonConentId, this.model3)
+        this.lesson_contentService.update(this.model3.lessonConentId, this.model3)
           .pipe(first())
           .subscribe(
             data => {

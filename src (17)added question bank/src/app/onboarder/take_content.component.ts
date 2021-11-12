@@ -26,7 +26,7 @@ export class Take_ContentComponent {
 }
 
 model: Lesson_Content = {
-  LessonConentId: 0,
+  lessonConentId: 0,
   LessonContenetTypeId: 0,
   LessonOutcomeId: 0,
   ArchiveStatusId: 0,

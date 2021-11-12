@@ -24,7 +24,7 @@ export class Learning_ContentComponent implements OnInit {
   model2: any = {};
 
   model3: Lesson_Content = {
-      LessonConentId: 0,
+    lessonConentId: 0,
       LessonContenetTypeId: 1,
       LessonOutcomeId: 0,
       ArchiveStatusId: 1,
@@ -60,14 +60,15 @@ export class Learning_ContentComponent implements OnInit {
             .subscribe(
                 content => {
                 this.content = content;
-                console.log(this.lesson_content)
+                this.lesson_content = this.content.filter((obj) => { return obj.archiveStatusId == 1 } )
+                console.log(this.content)
                 },
                 error => {
                 this.alertService.error('Error, Could not retrieve course lessons');
                 }
             );
 
-            this.lesson_content = this.content.filter((obj) => { return obj.departmentId == 1 } )
+           
     }
 
   addLesson_Content() {
@@ -80,7 +81,7 @@ export class Learning_ContentComponent implements OnInit {
       this.model3.LessonOutcomeId = this.id;
       this.model3.LessonContent1 = this.model.LessonContent1;
       this.model3.LessonContentDescription = this.model.LessonContentDescription;
-
+        this.model3.ArchiveStatusId = 1;
       this.lesson_contentService.create(this.model3)
         .pipe(first())
         .subscribe(
@@ -126,12 +127,13 @@ export class Learning_ContentComponent implements OnInit {
     //console.log("my value",this.myValue['lessonConentId'])
 
     this.model3.LessonOutcomeId = this.id;
-    this.model3.LessonConentId = this.lesson_content[editLesson_ContentInfo].lessonContentId;
-    this.model3.ArchiveStatusId = 2;
+    this.model3.lessonConentId = this.lesson_content[editLesson_ContentInfo].lessonConentId;
+    this.model3.ArchiveStatusId = 1;
     this.model3.LessonContentDescription = this.lesson_content[editLesson_ContentInfo].lessonContentDescription;
     this.model3.LessonContent1 = this.lesson_content[editLesson_ContentInfo].lessonContent1;
     
-        this.lesson_contentService.update(this.model3.LessonConentId, this.model3)
+    
+        this.lesson_contentService.update(this.model3.lessonConentId, this.model3)
           .pipe(first())
           .subscribe(
             data => {
@@ -150,12 +152,12 @@ export class Learning_ContentComponent implements OnInit {
     let editLesson_ContentInfo = i;
 
     this.model3.LessonOutcomeId = this.lesson_content[editLesson_ContentInfo].lessonOutcomeId;
-    this.model3.LessonConentId = this.lesson_content[editLesson_ContentInfo].lessonContentId;
+    this.model3.lessonConentId = this.lesson_content[editLesson_ContentInfo].lessonConentId;
     this.model3.ArchiveStatusId = 2;
     this.model3.LessonContentDescription = this.lesson_content[editLesson_ContentInfo].lessonContentDescription;
     this.model3.LessonContent1 = this.lesson_content[editLesson_ContentInfo].lessonContent1;
     
-        this.lesson_contentService.update(this.model3.LessonConentId, this.model3)
+        this.lesson_contentService.update(this.model3.lessonConentId, this.model3)
           .pipe(first())
           .subscribe(
             data => {

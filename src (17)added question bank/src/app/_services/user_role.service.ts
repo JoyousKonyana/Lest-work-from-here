@@ -14,15 +14,22 @@ export class User_RoleService {
 
    //Joyous, please put the link of the API here
    url = 'https://localhost:44319/api/UserRole'; 
-   movies:any = localStorage.getItem("user");
-   moviesi:any     = JSON.parse(this.movies);
-   userId;
-   if(moviesi){
-    this.userId = this.moviesi['id'];
-   }
+  //  movies:any = localStorage.getItem("user");
+  //  moviesi:any     = JSON.parse(this.movies);
+  //  userId;
+  //  if(moviesi){
+  //   this.userId = this.moviesi['id'];
+  //  }
    
-
-  constructor(private http: HttpClient) { }  
+userId;
+  constructor(private http: HttpClient) { 
+    var movies = localStorage.getItem("user");
+   var moviesi     = JSON.parse(movies);
+    this.userId;
+    if(moviesi){
+     this.userId = moviesi['id'];
+    }
+  }  
 
   getAllUser_Role(): Observable<any[]> {  
     return this.http.get<any[]>(`${this.url}/GetAllUserRoles`);  

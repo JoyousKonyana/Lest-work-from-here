@@ -115,7 +115,7 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
         [HttpPut]
         [Route("[action]/{id}/{userid}")]
-        public async Task<ActionResult<CourseViewModel>> UpdateLessonContent(int id, int userid, LessonContentViewModelDTO updatedCourseModel)
+        public async Task<ActionResult<CourseViewModel>> UpdateLessonContent(int id, int userid, LessonContentViewModel updatedCourseModel)
         {
             try
             {
@@ -123,8 +123,14 @@ namespace BMW_ONBOARDING_SYSTEM.Controllers
 
                 if (existingLessonContent == null) return NotFound($"Could Not find Lesson content ");
 
-                _mapper.Map(updatedCourseModel, existingLessonContent);
+                //_mapper.Map(updatedCourseModel, existingLessonContent);
+                existingLessonContent.ArchiveStatusId = updatedCourseModel.ArchiveStatusId;
+                existingLessonContent.LessonContenetTypeId = updatedCourseModel.LessonContenetTypeId;
 
+                existingLessonContent.LessonContentDescription = updatedCourseModel.LessonContentDescription;
+                existingLessonContent.LessonContent1 = updatedCourseModel.LessonContent1;
+                existingLessonContent.LessonOutcomeId = updatedCourseModel.LessonOutcomeId;
+                existingLessonContent.LessonConentId = updatedCourseModel.LessonConentId;
                 if (await _lessonContentRepository.SaveChangesAsync())
                 {
                     var lessonContent = await _lessonContentRepository.GetLessonContentByIdAsync(id);
