@@ -40,14 +40,12 @@ model: Lesson_Content = {
     .subscribe(
       lesson_content => {
         this.lesson_content = lesson_content;
+        this.content = this.lesson_content.filter((obj) => { return obj.archiveStatusId == 1 } )
       },
       error => {
         this.alertService.error('Error, Data was unsuccesfully retrieved');
       } 
     );
-
-    this.content = this.lesson_content.filter((obj) => { return obj.lessonConentId == 2 } )
-
   }
 
     constructor(
@@ -55,7 +53,6 @@ model: Lesson_Content = {
       private _router:Router,
       private alertService: AlertService,
       private lesson_contentService: Lesson_ContentService,
-      
     ) {
     }
 }

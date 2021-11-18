@@ -43,6 +43,7 @@ export class User_RoleComponent implements OnInit {
         this.Array.splice(index, 1);
       }
 
+      this.model3.UserRoleDescription = this.Array.toString();
       this.model.UserRoleDescription = this.Array.toString();
     }
     componentMethodName2(event: any, isChecked: boolean) 
@@ -56,6 +57,7 @@ export class User_RoleComponent implements OnInit {
       }
 
       this.model3.UserRoleDescription = this.Array2.toString();
+      this.model2.UserRoleDescription = this.Array2.toString();
     }
 
   loadAll() {
@@ -141,7 +143,6 @@ export class User_RoleComponent implements OnInit {
        if(i == editUsser_RoleInfo) 
        {
           this.model3.UserRoleId = this.user_role[editUsser_RoleInfo].userRoleId;
-          // this.model3.UserRoleDescription = this.model2.UserRoleAccessDescription;
           this.model3.UserRoleName = this.model2.UserRoleName;
 
          this.user_roleService.update(this.model3.UserRoleId, this.model3)

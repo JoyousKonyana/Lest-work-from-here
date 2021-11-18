@@ -55,7 +55,6 @@ import {
 } from './equipment';
 
 import {
-  Assign_User_RoleComponent,
   User_RoleComponent,
   SS_UsersComponent
 } from './users';
@@ -144,11 +143,6 @@ const routes: Routes = [
     path: 'ss_users',
     component: SS_UsersComponent,
     //canActivate: [AuthGuard]
-  },
-  {
-    path: 'assign_user_role',
-    component: Assign_User_RoleComponent,
-    //canActivate: [AuthGuard], data: { roles: [Role.Admin] }
   },
   {
     path: 'user_role',

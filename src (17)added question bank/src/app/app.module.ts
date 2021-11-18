@@ -71,7 +71,6 @@ import {
 } from './onboarder';
 
 import {
-  Assign_User_RoleComponent,
   User_RoleComponent,
   SS_UsersComponent
 } from './users';
@@ -207,7 +206,6 @@ import { CheckequipComponent } from './equipment/checkequip/checkequip.component
     BrandChartComponent, //Chart
 
     //Users
-    Assign_User_RoleComponent,
     User_RoleComponent,
     SS_UsersComponent,
 
